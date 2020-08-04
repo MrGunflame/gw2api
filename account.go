@@ -4,13 +4,6 @@ import (
   "time"
 )
 
-type AccountAchievement struct {
-  ID int `json:"id"`
-  Current int `json:"current"`
-  Max int `json:"max"`
-  Done bool `json:"done"`
-}
-
 type AccountBankItem struct {
   ID int `json:"id"`
   Count int `json:"count"`
@@ -63,59 +56,49 @@ func (s *Session) GetAccount() (account Account, err error) {
   return
 }
 
-func (s *Session) GetAccountAchievements(ids...int) (accountAchievements AccountAchievements, err error) {
-  err = s.get(makeURL("/v2/account/achievements", genArgs(ids...)), &accountAchievements)
+type AccountAchievement struct {
+  ID int `json:"id"`
+  Current int `json:"current"`
+  Max int `json:"max"`
+  Done bool `json:"done"`
+}
+
+func (s *Session) GetAccountAchievements(ids...int) (accountAchievements []*AccountAchievement, err error) {
+  err = s.getWithAuth(concatStrings("/v2/account/achievements", genArgs(ids...)), &accountAchievements)
+  return
 }
 
 func (s *Session) GetAccountBuildStorage(ids...int) (buildstorage BuildTemplates, err error) {
-  err = s.get(makeURL("/v2/account/buildstorage", genArgs(ids...)), &buildstorage)
+  err = s.getWithAuth(concatStrings("/v2/account/buildstorage", genArgs(ids...)), &buildstorage)
   return
 }
 
 func (s *Session) GetAccountDailyCrafting(ids...int) (items []*AccountDailyCraftingItem, err error) {
-  err = s.getWithAuth(makeURL("/v2/account/dailycrafting", genArgs(ids...)), &items)
+  err = s.getWithAuth(concatStrings("/v2/account/dailycrafting", genArgs(ids...)), &items)
   return
 }
 
 // NOT YET IMPLEMENTED
-func (s *Session) GetAccountDungeons()
+func (s *Session) GetAccountDungeons() {
+  
+}
 
 func (s *Session) GetAccountDyes() (dyes []int, err error) {
-
-  err = s.get("/v2/account/dyes", &dyes)
-  if err != nil {
-    return
-  }
-
+  err = s.getWithAuth("/v2/account/dyes", &dyes)
   return
 }
 
 func (s *Session) GetAccountFinishers() (finishers []*AccountFinisher, err error) {
-
-  err = s.get("/v2/account/finishers", &finishers)
-  if err != nil {
-    return
-  }
-
+  err = s.getWithAuth("/v2/account/finishers", &finishers)
   return
 }
 
 func (s *Session) GetAccountGliders() (gliders []int, err error) {
-
-  err = s.get("/v2/account/gliders")
-  if err != nil {
-    return
-  }
-
+  err = s.getWithAuth("/v2/account/gliders", &gliders)
   return
 }
 
 func (s *Session) GetAccountHomeCats() (cats []*AccountHomeCat, err error) {
-
-  resp, err := s.get("/v2/account/home/cats", &cats)
-  if err != nil {
-    return
-  }
-
+  err = s.get("/v2/account/home/cats", &cats)
   return
 }

@@ -3,7 +3,6 @@ package gw2api
 import (
   "net/http"
   "encoding/json"
-  "web/pkg/util"
   "io"
   "strconv"
   "strings"
@@ -41,14 +40,14 @@ func (s *Session) WithLanguage(lang string) *Session {
 
 // newRequest creates a new request with the json content type and the valid access token
 func (s *Session) newRequest(method, endpoint string) (*http.Request, error) {
-  req, err := http.NewRequest(method, util.ConcatStrings(s.EndpointAPI, endpoint), nil)
+  req, err := http.NewRequest(method, concatStrings(s.EndpointAPI, endpoint), nil)
   if err != nil {
     return nil, err
   }
 
   // Add the accesstoken to the authentication header
   if s.AccessToken != "" {
-    req.Header.Set("Authorization", util.ConcatStrings("Bearer ", s.AccessToken))
+    req.Header.Set("Authorization", concatStrings("Bearer ", s.AccessToken))
   }
 
   return req, nil
@@ -71,11 +70,11 @@ func (s *Session) get(endpoint string, dst interface{}) error {
     return err
   }
 
-  return dst.Err()
+  return nil
 }
 
 func (s *Session) getWithAuth(endpoint string, dst interface{}) error {
-  return s.get(endpoint string, dst interface{})
+  return s.get(endpoint, dst)
 }
 
 func decode(src io.Reader, dst interface{Err() error}) error {
@@ -91,12 +90,8 @@ func genArgs(ids...int) string {
   case 0:
     return "?ids=all"
   case 1:
-    return util.ConcatStrings("?id=", strconv.Itoa(ids[0]))
+    return concatStrings("?id=", strconv.Itoa(ids[0]))
   default:
-    return util.ConcatStrings("?ids=", strings.Join(util.ItoaSlice(ids), ","))
+    return concatStrings("?ids=", strings.Join(itoaSlice(ids), ","))
   }
-}
-
-func makeURL(args...string) string {
-  return util.ConcatStrings(args...)
 }

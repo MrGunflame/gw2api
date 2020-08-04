@@ -6,14 +6,14 @@
 - [ ] /v2/achievements/groups
 - [ ] /v2/achievements/categories
 
-- [ ] /v2/account
-- [ ] /v2/account/achievements
-- [ ] /v2/account/bank
-- [ ] /v2/account/dailycrafting
+- [x] /v2/account
+- [x] /v2/account/achievements
+- [x] /v2/account/bank
+- [x] /v2/account/dailycrafting
 - [ ] /v2/account/dungeons
-- [ ] /v2/account/dyes
-- [ ] /v2/account/finishers
-- [ ] /v2/account/gliders
+- [x] /v2/account/dyes
+- [x] /v2/account/finishers
+- [x] /v2/account/gliders
 - [ ] /v2/account/home/cats
 - [ ] /v2/account/home/nodes
 - [ ] /v2/account/inventory
@@ -69,3 +69,45 @@
 - [ ] /v2/guild/:id/upgrades
 - [ ] /v2/home/cats
 - [ ] /v2/home/nodes
+- [ ] /v2/finishers
+- [ ] /v2/items
+- [ ] /v2/itemstats
+- [ ] /v2/materials
+- [ ] /v2/pvp/amulets
+- [ ] /v2/recipes
+- [ ] /v2/recipes/search
+- [ ] /v2/skins
+- [ ] /v2/continents
+- [ ] /v2/maps
+- [ ] /v2/build
+- [ ] /v2/colors
+- [ ] /v2/currencies
+- [ ] /v2/dungeons
+- [ ] /v2/files
+- [ ] /v2/quaggans
+- [ ] /v2/minis
+- [ ] /v2/novelties
+- [ ] /v2/raids
+- [ ] /v2/titles
+- [ ] /v2/worlds
+- [ ] /v2/backstory/answers
+- [ ] /v2/backstory/questions
+- [ ] /v2/stories
+- [ ] /v2/stories/seasons
+- [ ] /v2/quests
+- [ ] /v2/pvp
+- [ ] /v2/pvp/ranks
+- [ ] /v2/pvp/seasons
+- [ ] /v2/pvp/seasons/:id/leaderboards
+- [ ] /v2/commerce/delivery
+- [ ] /v2/commerce/exchange
+- [ ] /v2/commerce/exchange/coins
+- [ ] /v2/commerce/exchange/gems
+- [ ] /v2/commerce/listings
+- [ ] /v2/commerce/prices
+- [ ] /v2/commerce/transactions
+- [ ] /v2/wvw/abilities
+- [ ] /v2/wvw/matches
+- [ ] /v2/wvw/objectives
+- [ ] /v2/wvw/ranks
+- [ ] /v2/wvw/upgrades
