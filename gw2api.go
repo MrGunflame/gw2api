@@ -16,6 +16,7 @@ type Session struct {
   Language string
 }
 
+// New creates a new gw2api session
 func New() *Session {
   return &Session{
     EndpointAPI: defaultEndpointAPI,
