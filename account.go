@@ -77,7 +77,7 @@ func (s *Session) GetAccountAchievements(ids ...int) (accountAchievements []*Acc
 }
 
 // GetAccountBuildStorage returns all builds stored in the accounts build storage
-func (s *Session) GetAccountBuildStorage(ids ...int) (buildstorage BuildTemplates, err error) {
+func (s *Session) GetAccountBuildStorage(ids ...int) (buildstorage []*BuildTemplate, err error) {
 	err = s.getWithAuth(concatStrings("/v2/account/buildstorage", genArgs(ids...)), &buildstorage)
 	return
 }
