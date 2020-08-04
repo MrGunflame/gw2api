@@ -1,10 +1,10 @@
 ## Supported Endpoints
 
-[ ] /v2/achievements
-[ ] /v2/achievements/daily
-[ ] /v2/achievements/daily/tomorrow
-[ ] /v2/achievements/groups
-[ ] /v2/achievements/categories
+- [ ] /v2/achievements
+- [ ] /v2/achievements/daily
+- [ ] /v2/achievements/daily/tomorrow
+- [ ] /v2/achievements/groups
+- [ ] /v2/achievements/categories
 
 [ ] /v2/account
 [ ] /v2/account/achievements
