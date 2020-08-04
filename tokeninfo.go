@@ -1,6 +1,6 @@
 package gw2api
 
-// TokenInfo contains general token information, such as the permissons
+// TokenInfo contains general token information, such as the permissions
 type TokenInfo struct {
 	ID          string   `json:"id"`
 	Name        string   `json:"name"`
