@@ -10,45 +10,49 @@ import (
 
 var defaultEndpointAPI = "https://api.guildwars2.com"
 
+// Session is used to make requests to the gw2api. It also handles authentication.
 type Session struct {
-	EndpointAPI string
-	AccessToken string
-	Language    string
+	endpointAPI string
+	accessToken string
+	language    string
 }
 
 // New creates a new gw2api session
 func New() *Session {
 	return &Session{
-		EndpointAPI: defaultEndpointAPI,
-		Language:    "en",
+		endpointAPI: defaultEndpointAPI,
+		language:    "en",
 	}
 }
 
+// WithEndpointAPI sets the API endpoint
 func (s *Session) WithEndpointAPI(endpointApi string) *Session {
-	s.EndpointAPI = endpointApi
+	s.endpointAPI = endpointApi
 	return s
 }
 
+// WithAccessToken sets an accesstoken for a session
 func (s *Session) WithAccessToken(token string) *Session {
-	s.AccessToken = token
+	s.accessToken = token
 	return s
 }
 
+// WithLanguage sets the sessions language
 func (s *Session) WithLanguage(lang string) *Session {
-	s.Language = lang
+	s.language = lang
 	return s
 }
 
 // newRequest creates a new request with the json content type and the valid access token
 func (s *Session) newRequest(method, endpoint string) (*http.Request, error) {
-	req, err := http.NewRequest(method, concatStrings(s.EndpointAPI, endpoint), nil)
+	req, err := http.NewRequest(method, concatStrings(s.endpointAPI, endpoint), nil)
 	if err != nil {
 		return nil, err
 	}
 
 	// Add the accesstoken to the authentication header
-	if s.AccessToken != "" {
-		req.Header.Set("Authorization", concatStrings("Bearer ", s.AccessToken))
+	if s.accessToken != "" {
+		req.Header.Set("Authorization", concatStrings("Bearer ", s.accessToken))
 	}
 
 	return req, nil
