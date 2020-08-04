@@ -1,3 +1,7 @@
+# GW2API
+
+A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
+
 ## Supported Endpoints
 
 - [ ] /v2/achievements
@@ -14,14 +18,15 @@
 - [x] /v2/account/dyes
 - [x] /v2/account/finishers
 - [x] /v2/account/gliders
-- [ ] /v2/account/home/cats
-- [ ] /v2/account/home/nodes
-- [ ] /v2/account/inventory
-- [ ] /v2/account/luck
-- [ ] /v2/account/mailcarriers
-- [ ] /v2/account/mapchests
-- [ ] /v2/account/masteries
-- [ ] /v2/account/materials
+- [x] /v2/account/home/cats
+- [x] /v2/account/home/nodes
+- [x] /v2/account/inventory
+- [x] /v2/account/luck
+- [x] /v2/account/mailcarriers
+- [x] /v2/account/mapchests
+- [x] /v2/account/masteries
+- [x] /v2/account/mastery/points
+- [x] /v2/account/materials
 - [ ] /v2/account/minis
 - [ ] /v2/account/mounts/skins
 - [ ] /v2/account/mounts/types
