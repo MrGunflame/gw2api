@@ -1,5 +1,6 @@
 package gw2api
 
+// BuildTemplate is a template in the accounts storage
 type BuildTemplate struct {
   Name string `json:"name"`
   Profession string `json:"profession"`
@@ -17,9 +18,4 @@ type BuildTemplate struct {
     Utilities []int `json:"utilities"`
     Elite int `json:"elite"`
   } `json:"aquatic_skills"`
-}
-
-type BuildTemplates struct {
-  Error
-  Data []*BuildTemplate
 }
