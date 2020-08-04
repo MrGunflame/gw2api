@@ -1,11 +1,11 @@
 package gw2api
 
 import (
-	"strings"
 	"strconv"
+	"strings"
 )
 
-func concatStrings(args...string) string {
+func concatStrings(args ...string) string {
 	var str strings.Builder
 	for _, x := range args {
 		str.WriteString(x)
