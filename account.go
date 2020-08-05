@@ -194,3 +194,81 @@ func (s *Session) GetAccountMaterials() (materials []*Material, err error) {
 	err = s.getWithAuth("/v2/account/materials", &materials)
 	return
 }
+
+// GetAccountMinis returns the accounts mini unlocks
+func (s *Session) GetAccountMinis() (minis []int, err error) {
+	err = s.getWithAuth("/v2/account/minis", &minis)
+	return
+}
+
+// GetAccountMountSkins returns the accounts mountskin unlocks
+func (s *Session) GetAccountMountSkins() (skins []int, err error) {
+	err = s.getWithAuth("/v2/account/mounts/skins", &skins)
+	return
+}
+
+// GetAccountMountTypes returns the accounts mount unlocks
+func (s *Session) GetAccountMounTypes() (types []int, err error) {
+	err = s.getWithAuth("/v2/account/mounts/types", &types)
+	return
+}
+
+// GetAccountNovelties returns the accounts novelties unlocks
+func (s *Session) GetAccountNovelties() (novelties []int, err error) {
+	err = s.getWithAuth("/v2/account/novelties", &novelties)
+	return
+}
+
+// GetAccountOutfits returns the accounts outfit unlocks
+func (s *Session) GetAccountOutfits() (outfits []int, err error) {
+	err = s.getWithAuth("/v2/account/outfits", &outfits)
+	return
+}
+
+// GetAccountPvPHeroes returns the accounts pvp hero unlocks
+func (s *Session) GetAccountPvPHeroes() (heroes []int, err error) {
+	err = s.getWithAuth("/v2/account/pvp/heroes", &heroes)
+	return
+}
+
+// GetAccountRaids returns the completed raid encounters since the weekly raid reset
+func (s *Session) GetAccountRaids() (bosses []string, err error) {
+	err = s.getWithAuth("/v2/account/raids", &bosses)
+	return
+}
+
+// GetAccountRecipes returns information about recipes that are unlocked for an account
+func (s *Session) GetAccountRecipes() (recipes []int, err error) {
+	err = s.getWithAuth("/v2/account/recipes", &recipes)
+	return
+}
+
+// GetAccountSkins returns the unlocked skins of the account
+func (s *Session) GetAccountSkins() (skins []int, err error) {
+	err = s.getWithAuth("/v2/account/skins", &skins)
+	return
+}
+
+// GetAccountTitles returns information about titles that are unlocked for an account
+func (s *Session) GetAccountTitles() (titles []int, err error) {
+	err = s.getWithAuth("/v2/account/titles", &titles)
+	return
+}
+
+// Currency represents objects in the account wallet
+type Currency struct {
+	ID    int `json:"id"`
+	Value int `json:"value"`
+}
+
+// GetAccountWallet returns the currencies of the account
+func (s *Session) GetAccountWallet() (wallet []*Currency, err error) {
+	err = s.getWithAuth("/v2/account/wallet", &wallet)
+	return
+}
+
+// GetAccountWorldbosses returns information about which world bosses have been killed by the account since daily reset
+func (s *Session) GetAccountWorldbosses() (bosses []string, err error) {
+	err = s.getWithAuth("/v2/account/worldbosses", &bosses)
+	return
+}
