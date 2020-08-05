@@ -29,18 +29,18 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [x] /v2/account/masteries
 - [x] /v2/account/mastery/points
 - [x] /v2/account/materials
-- [ ] /v2/account/minis
-- [ ] /v2/account/mounts/skins
-- [ ] /v2/account/mounts/types
-- [ ] /v2/account/novelties
-- [ ] /v2/account/outfits
-- [ ] /v2/account/pvp/heroes
-- [ ] /v2/account/raids
-- [ ] /v2/account/recipes
-- [ ] /v2/account/skins
-- [ ] /v2/account/titles
-- [ ] /v2/account/wallet
-- [ ] /v2/account/worldbosses
+- [x] /v2/account/minis
+- [x] /v2/account/mounts/skins
+- [x] /v2/account/mounts/types
+- [x] /v2/account/novelties
+- [x] /v2/account/outfits
+- [x] /v2/account/pvp/heroes
+- [x] /v2/account/raids
+- [x] /v2/account/recipes
+- [x] /v2/account/skins
+- [x] /v2/account/titles
+- [x] /v2/account/wallet
+- [x] /v2/account/worldbosses
 - [ ] /v2/characters
 - [ ] /v2/commerce/transactions
 - [ ] /v2/pvp/stats
