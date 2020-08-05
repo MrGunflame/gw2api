@@ -1,7 +1,7 @@
 package gw2api
 
 // ItemStack is the data contained in requests that return stored items, e.g. bank or shared inventory
-type ItemSlot struct {
+type ItemStack struct {
 	ID        string `json:"id"`
 	Count     int    `json:"count"`
 	Charges   int    `json:"charges"`
