@@ -2,6 +2,8 @@
 
 A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 
+**This Module is still Work In Progress and not stable yet.**
+
 ## Supported Endpoints
 
 - [ ] /v2/achievements
