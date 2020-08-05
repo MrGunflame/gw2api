@@ -124,7 +124,7 @@ func (s *Session) GetAccountHomeNodes() (nodes []string, err error) {
 }
 
 // GetAccountSharedInventory returns the items stored in the shared inventory slots
-func (s *Session) GetAccountSharedInventory() (items []*ItemSlot, err error) {
+func (s *Session) GetAccountSharedInventory() (items []*ItemStack, err error) {
 	err = s.getWithAuth("/v2/account/inventory", &items)
 	return
 }
