@@ -16,7 +16,7 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [x] /v2/account/achievements
 - [x] /v2/account/bank
 - [x] /v2/account/dailycrafting
-- [ ] /v2/account/dungeons
+- [x] /v2/account/dungeons
 - [x] /v2/account/dyes
 - [x] /v2/account/finishers
 - [x] /v2/account/gliders
@@ -41,7 +41,7 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [x] /v2/account/titles
 - [x] /v2/account/wallet
 - [x] /v2/account/worldbosses
-- [ ] /v2/characters
+- [x] /v2/characters
 - [ ] /v2/commerce/transactions
 - [ ] /v2/pvp/stats
 - [ ] /v2/pvp/games
