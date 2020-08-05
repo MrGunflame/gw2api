@@ -88,9 +88,10 @@ func (s *Session) GetAccountDailyCrafting(ids ...int) (items []*AccountDailyCraf
 	return
 }
 
-// NOT YET IMPLEMENTED
-func (s *Session) GetAccountDungeons() {
-
+// GetAccountDungeons returns the dungeons paths completed since daily reset
+func (s *Session) GetAccountDungeons() (paths []string, err error) {
+	err = s.getWithAuth("/v2/account/dungeons", &paths)
+	return
 }
 
 // GetAccountDyes returns all dye unlocks
@@ -208,7 +209,7 @@ func (s *Session) GetAccountMountSkins() (skins []int, err error) {
 }
 
 // GetAccountMountTypes returns the accounts mount unlocks
-func (s *Session) GetAccountMounTypes() (types []int, err error) {
+func (s *Session) GetAccountMountTypes() (types []int, err error) {
 	err = s.getWithAuth("/v2/account/mounts/types", &types)
 	return
 }
