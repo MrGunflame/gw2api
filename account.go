@@ -141,9 +141,9 @@ func (s *Session) GetAccountLuck() (luck AccountLuck, err error) {
 	return
 }
 
-// GetMailCarries returns all mail carrier unlocks
-func (s *Session) GetMailCarriers() (carries []int, err error) {
-	err = s.getWithAuth("/v2/account/mailcarries", &carries)
+// GetAccountMailCarriers the accounts unlocked mailcarriers
+func (s *Session) GetAccountMailCarriers() (carriers []int, err error) {
+	err = s.getWithAuth("/v2/account/mailcarries", &carriers)
 	return
 }
 
