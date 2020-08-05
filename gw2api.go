@@ -100,3 +100,14 @@ func genArgs(ids ...int) string {
 		return concatStrings("?ids=", strings.Join(itoaSlice(ids), ","))
 	}
 }
+
+func genArgsString(ids ...string) string {
+	switch len(ids) {
+	case 0:
+		return "?ids=all"
+	case 1:
+		return concatStrings("?id=", ids[0])
+	default:
+		return concatStrings("?ids=all", strings.Join(ids, ","))
+	}
+}
