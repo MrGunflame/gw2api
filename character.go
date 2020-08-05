@@ -28,7 +28,7 @@ type CharacterCore struct {
 	Title      int    `json:"title"`
 }
 
-// DisciplineProgrss defines a crafting discipline and the characters progress
+// DisciplineProgress defines a crafting discipline and the characters progress
 type DisciplineProgress struct {
 	Discipline string `json:"discipline"`
 	Rating     int    `json:"rating"`
@@ -129,7 +129,7 @@ func (s *Session) GetCharacters() (chars []string, err error) {
 	return
 }
 
-// GetCharacterBackStory returns the characters initial story decisions
+// GetCharacterBackstory returns the characters initial story decisions
 func (s *Session) GetCharacterBackstory(character string) (backstory []string, err error) {
 	err = s.getWithAuth(concatStrings("/v2/characters/", character, "/backstory"), &backstory)
 	return
