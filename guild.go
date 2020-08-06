@@ -121,7 +121,7 @@ type GuildTeam struct {
 	Name      string          `json:"name"`
 	Aggregate PvPWinLossStats `json:"aggregate"`
 	Ladders   PvPWinLossStats `json:"ladders"`
-	Games     []*PvPGame      `json:"games"` // Profession field is ommited
+	Games     []*PvPGame      `json:"games"` // Profession field is omitted
 	Seasons   []struct {
 		ID     string `json:"id"`
 		Wins   int    `json:"wins"`
