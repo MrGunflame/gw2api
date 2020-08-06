@@ -113,8 +113,8 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [ ] /v2/commerce/listings
 - [ ] /v2/commerce/prices
 - [ ] /v2/commerce/transactions
-- [ ] /v2/wvw/abilities
-- [ ] /v2/wvw/matches
-- [ ] /v2/wvw/objectives
-- [ ] /v2/wvw/ranks
-- [ ] /v2/wvw/upgrades
+- [x] /v2/wvw/abilities
+- [x] /v2/wvw/matches
+- [x] /v2/wvw/objectives
+- [x] /v2/wvw/ranks
+- [x] /v2/wvw/upgrades
