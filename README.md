@@ -106,13 +106,13 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [ ] /v2/pvp/ranks
 - [ ] /v2/pvp/seasons
 - [ ] /v2/pvp/seasons/:id/leaderboards
-- [ ] /v2/commerce/delivery
-- [ ] /v2/commerce/exchange
-- [ ] /v2/commerce/exchange/coins
-- [ ] /v2/commerce/exchange/gems
-- [ ] /v2/commerce/listings
-- [ ] /v2/commerce/prices
-- [ ] /v2/commerce/transactions
+- [x] /v2/commerce/delivery
+- [x] /v2/commerce/exchange
+- [x] /v2/commerce/exchange/coins
+- [x] /v2/commerce/exchange/gems
+- [x] /v2/commerce/listings
+- [x] /v2/commerce/prices
+- [x] /v2/commerce/transactions
 - [x] /v2/wvw/abilities
 - [x] /v2/wvw/matches
 - [x] /v2/wvw/objectives
