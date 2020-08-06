@@ -62,18 +62,18 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [ ] /v2/skills
 - [ ] /v2/traits
 - [ ] /v2/legends
-- [ ] /v2/guild/:id
+- [x] /v2/guild/:id
 - [ ] /v2/emblem
-- [ ] /v2/guild/permissions
-- [ ] /v2/guild/search
-- [ ] /v2/guild/upgrades
-- [ ] /v2/guild/:id/log
-- [ ] /v2/guild/:id/members
-- [ ] /v2/guild/:id/ranks
-- [ ] /v2/guild/:id/stash
-- [ ] /v2/guild/:id/treasury
-- [ ] /v2/guild/:id/teams
-- [ ] /v2/guild/:id/upgrades
+- [x] /v2/guild/permissions
+- [x] /v2/guild/search
+- [x] /v2/guild/upgrades
+- [x] /v2/guild/:id/log
+- [x] /v2/guild/:id/members
+- [x] /v2/guild/:id/ranks
+- [x] /v2/guild/:id/stash
+- [x] /v2/guild/:id/treasury
+- [x] /v2/guild/:id/teams
+- [x] /v2/guild/:id/upgrades
 - [ ] /v2/home/cats
 - [ ] /v2/home/nodes
 - [ ] /v2/finishers
