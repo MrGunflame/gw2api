@@ -10,17 +10,15 @@ var (
 	ErrInvalidAccessToken = errors.New("Invalid access token")
 )
 
-// type Error struct {
-// 	HTTPError string `json:"error"`
-// 	Text      string `json:"text"`
-// }
+// Error is an error returned from the gw2api
+type Error struct {
+	Err  string `json:"error"`
+	Text string `json:"text"`
+}
 
-// func (e *Error) Err() error {
-// 	switch {
-// 	case e.HTTPError == "not found":
-// 		return ErrNotFound
-// 	case e.Text == "Invalid access token":
-// 		return ErrInvalidAccessToken
-// 	}
-// 	return nil
-// }
+func (e *Error) Error() string {
+	if e.Err != "" {
+		return e.Err
+	}
+	return e.Text
+}
