@@ -55,8 +55,8 @@ type AchievementCategory struct {
 	Achievements []int  `json:"achievement"`
 }
 
-// GetAchievement returns an game achievement
-func (s *Session) GetAchievement(ids ...int) (achievements []*Achievement, err error) {
+// GetAchievements returns an game achievement
+func (s *Session) GetAchievements(ids ...int) (achievements []*Achievement, err error) {
 	err = s.get(concatStrings("/v2/achievements", genArgs(ids...)), &achievements)
 	return
 }
@@ -74,13 +74,13 @@ func (s *Session) GetTomorrowDailyAchievements() (daily map[string][]*DailyAchie
 }
 
 // GetAchievementGroups returns all achievement groups
-func (s *Session) GetAchievementGroups() (groups []*AchievementGroup, err error) {
-	err = s.get("/v2/achievement/groups", &groups)
+func (s *Session) GetAchievementGroups(ids ...string) (groups []*AchievementGroup, err error) {
+	err = s.get(concatStrings("/v2/achievements/groups", genArgsString(ids...)), &groups)
 	return
 }
 
 // GetAchievementCategories returns all achievement categories
-func (s *Session) GetAchievementCategories() (categories []*AchievementCategory, err error) {
-	err = s.get("/v2/achievement/categories", &categories)
+func (s *Session) GetAchievementCategories(ids ...int) (categories []*AchievementCategory, err error) {
+	err = s.get(concatStrings("/v2/achievements/categories", genArgs(ids...)), &categories)
 	return
 }
