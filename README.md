@@ -96,7 +96,7 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 - [ ] /v2/novelties
 - [ ] /v2/raids
 - [ ] /v2/titles
-- [ ] /v2/worlds
+- [x] /v2/worlds
 - [ ] /v2/backstory/answers
 - [ ] /v2/backstory/questions
 - [ ] /v2/stories
