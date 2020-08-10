@@ -1,5 +1,7 @@
 package gw2api
 
+import "strconv"
+
 // WvWAbility is a trainable ability in wvw
 type WvWAbility struct {
 	ID          int    `json:"id"`
@@ -101,6 +103,12 @@ func (s *Session) GetWvWAbilities(ids ...int) (abilities []*WvWAbility, err erro
 // GetWvWMatches returns currently active matches
 func (s *Session) GetWvWMatches(ids ...string) (matches []*WvWMatch, err error) {
 	err = s.get(concatStrings("/v2/wvw/matches", genArgsString(ids...)), &matches)
+	return
+}
+
+// GetWvWMatchByWorldID returns the match based on the participating world
+func (s *Session) GetWvWMatchByWorldID(id int) (match *WvWMatch, err error) {
+	err = s.get(concatStrings("/v2/wvw/matches?world=", strconv.Itoa(id)), &match)
 	return
 }
 

@@ -13,6 +13,10 @@ func TestWvW(t *testing.T) {
 		t.Error("GetWvWMatches failed: ", err)
 	}
 
+	if _, err := api.GetWvWMatchByWorldID(2003); err != nil {
+		t.Error("GetWvWMatchByWorldID failed: ", err)
+	}
+
 	if _, err := api.GetWvWObjectives(); err != nil {
 		t.Error("GetWvWObjectives failed: ", err)
 	}
