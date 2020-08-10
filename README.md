@@ -6,11 +6,11 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 
 ## Supported Endpoints
 
-- [ ] /v2/achievements
-- [ ] /v2/achievements/daily
-- [ ] /v2/achievements/daily/tomorrow
-- [ ] /v2/achievements/groups
-- [ ] /v2/achievements/categories
+- [x] /v2/achievements
+- [x] /v2/achievements/daily
+- [x] /v2/achievements/daily/tomorrow
+- [x] /v2/achievements/groups
+- [x] /v2/achievements/categories
 
 - [x] /v2/account
 - [x] /v2/account/achievements
