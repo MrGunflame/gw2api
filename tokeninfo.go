@@ -9,6 +9,6 @@ type TokenInfo struct {
 
 // GetTokenInfo returns general information about the provided token
 func (s *Session) GetTokenInfo() (tokeninfo TokenInfo, err error) {
-	err = s.get("/v2/tokeninfo", &tokeninfo)
+	err = s.getWithAuth("/v2/tokeninfo", &tokeninfo)
 	return
 }
