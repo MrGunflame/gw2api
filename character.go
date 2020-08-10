@@ -112,7 +112,7 @@ type CharacterExtras struct {
 		Amulet int   `json:"amulet"`
 		Rune   int   `json:"rune"`
 		Sigils []int `json:"sigils"`
-	} `json:"equipment_pvp`
+	} `json:"equipment_pvp"`
 	Flags []string `json:"flag"`
 }
 

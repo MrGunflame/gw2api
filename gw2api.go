@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
-	"strconv"
 	"strings"
 )
 
@@ -26,8 +25,8 @@ func New() *Session {
 }
 
 // WithEndpointAPI sets the API endpoint
-func (s *Session) WithEndpointAPI(endpointApi string) *Session {
-	s.endpointAPI = endpointApi
+func (s *Session) WithEndpointAPI(endpointAPI string) *Session {
+	s.endpointAPI = endpointAPI
 	return s
 }
 
@@ -94,8 +93,6 @@ func genArgs(ids ...int) string {
 	switch len(ids) {
 	case 0:
 		return "?ids=all"
-	case 1:
-		return concatStrings("?id=", strconv.Itoa(ids[0]))
 	default:
 		return concatStrings("?ids=", strings.Join(itoaSlice(ids), ","))
 	}
@@ -105,9 +102,7 @@ func genArgsString(ids ...string) string {
 	switch len(ids) {
 	case 0:
 		return "?ids=all"
-	case 1:
-		return concatStrings("?id=", ids[0])
 	default:
-		return concatStrings("?ids=all", strings.Join(ids, ","))
+		return concatStrings("?ids=", strings.Join(ids, ","))
 	}
 }

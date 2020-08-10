@@ -45,7 +45,7 @@ type WvWMatch struct {
 			Owner         string `json:"owner"`
 			LastFlipped   string `json:"last_flipped"`
 			ClaimedBy     string `json:"claimed_by"`
-			ClaimedAt     string `json:"claimed_at`
+			ClaimedAt     string `json:"claimed_at"`
 			PointsTick    int    `json:"points_tick"`
 			PointsCapture int    `json:"points_capture"`
 			YaksDelivered int    `json:"yaks_delivered"`
