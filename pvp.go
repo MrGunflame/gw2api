@@ -131,8 +131,8 @@ func (s *Session) GetPvPStats() (stats *PvPStats, err error) {
 }
 
 // GetPvPGames returns the last 10 played matches
-func (s *Session) GetPvPGames() (games *[]PvPGame, err error) {
-	err = s.getWithAuth("/v2/pvp/games", &games)
+func (s *Session) GetPvPGames(ids ...string) (games *[]PvPGame, err error) {
+	err = s.getWithAuth(concatStrings("/v2/pvp/games", genArgsString(ids...)), &games)
 	return
 }
 
