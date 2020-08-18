@@ -7,6 +7,7 @@ import (
 // Error constants
 var (
 	ErrNotFound           = errors.New("not found")
+	ErrNoAccessToken      = errors.New("No access token provided")
 	ErrInvalidAccessToken = errors.New("Invalid access token")
 )
 
