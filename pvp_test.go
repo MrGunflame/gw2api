@@ -4,16 +4,17 @@ import "testing"
 
 func TestPvP(t *testing.T) {
 	api := New()
+	apiAuth := New().WithAccessToken(testAccessToken)
 
-	if _, err := api.GetPvPStats(); err != nil {
+	if _, err := apiAuth.GetPvPStats(); err != nil {
 		t.Error("GetPvPStats failed: ", err)
 	}
 
-	if _, err := api.GetPvPGames(); err != nil {
+	if _, err := apiAuth.GetPvPGames(); err != nil {
 		t.Error("GetPvPGames failed: ", err)
 	}
 
-	if _, err := api.GetPvPStandings(); err != nil {
+	if _, err := apiAuth.GetPvPStandings(); err != nil {
 		t.Error("GetPvPStandings failed: ", err)
 	}
 
