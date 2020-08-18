@@ -2,7 +2,6 @@ package gw2api
 
 import (
 	"encoding/json"
-	"io"
 	"net/http"
 	"strings"
 )
@@ -57,35 +56,60 @@ func (s *Session) newRequest(method, endpoint string) (*http.Request, error) {
 	return req, nil
 }
 
+// get fetches an endpoint and decodes the json response into dst
 func (s *Session) get(endpoint string, dst interface{}) error {
-
+	// Create a new request
 	req, err := s.newRequest("GET", endpoint)
 	if err != nil {
 		return err
 	}
 
+	// Make the request
+	return makeRequest(req, dst)
+}
+
+// getWithAuth fetches an endpoint that requires authentication and decodes the json response into dst
+func (s *Session) getWithAuth(endpoint string, dst interface{}) error {
+	// Create a new request
+	req, err := s.newRequest("GET", endpoint)
+	if err != nil {
+		return err
+	}
+
+	// Set the AccessToken header
+	if s.accessToken == "" {
+		return ErrNoAccessToken
+	}
+	req.Header.Set("Authorization", concatStrings("Bearer ", s.accessToken))
+
+	// Make the request
+	return makeRequest(req, dst)
+}
+
+// makeRequest takes a http request, sends it and decodes the json response into the dst interface
+func makeRequest(req *http.Request, dst interface{}) error {
+	// Make the http request
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return err
 	}
 	defer resp.Body.Close()
 
+	// Error checking
+	var sErr *Error
+	if resp.StatusCode >= 400 {
+		if err = json.NewDecoder(resp.Body).Decode(&sErr); err != nil {
+			return err
+		}
+		return sErr
+	}
+
+	// Decode the json data
 	if err = json.NewDecoder(resp.Body).Decode(dst); err != nil {
 		return err
 	}
 
 	return nil
-}
-
-func (s *Session) getWithAuth(endpoint string, dst interface{}) error {
-	return s.get(endpoint, dst)
-}
-
-func decode(src io.Reader, dst interface{ Err() error }) error {
-	if err := json.NewDecoder(src).Decode(dst); err != nil {
-		return err
-	}
-	return dst.Err()
 }
 
 // genArgs generates the http arguments based on the given ids
