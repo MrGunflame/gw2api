@@ -97,7 +97,7 @@ func makeRequest(req *http.Request, dst interface{}) error {
 
 	// Error checking
 	var sErr *Error
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 299 {
 		if err = json.NewDecoder(resp.Body).Decode(&sErr); err != nil {
 			return err
 		}
