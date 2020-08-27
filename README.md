@@ -4,6 +4,48 @@ A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
 
 **This Module is still Work In Progress and not stable yet.**
 
+## Installation
+
+`go get -u gitlab.com/MrGunflame/gw2api`
+
+## Examples
+
+Create a new api session and use it to fetch endpoints.
+```
+package main
+
+import (
+    "fmt"
+
+    "gitlab.com/MrGunflame/gw2api"
+)
+
+func main() {
+    // Create a new session
+    api := gw2api.New()
+
+    // Make a request
+    worlds, err := api.GetWorlds()
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(worlds)
+
+    // Some endpoints will require an apikey
+    // Set an apikey
+    api = api.WithAcessToken("<YOUR APIKEY>")
+
+    // Again, make a request
+    account, err := gw2api.GetAccount()
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(account)
+}
+```
+
 ## Supported Endpoints
 
 - [x] /v2/achievements
