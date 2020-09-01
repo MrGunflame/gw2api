@@ -21,25 +21,7 @@ type AccountBankItem struct {
 	} `json:"stats"`
 }
 
-// AccountDailyCraftingItem is an object crafted daily
-type AccountDailyCraftingItem struct {
-	ID string `json:"id"`
-}
-
-// AccountFinisher is an finisher unluck for an account
-type AccountFinisher struct {
-	ID        int  `json:"id"`
-	Permanent bool `json:"permanent"`
-	Quantity  int  `json:"qantity"`
-}
-
-// AccountHomeCat is a home cat node
-type AccountHomeCat struct {
-	ID   int    `json:"id"`
-	Hint string `json:"hint"`
-}
-
-// Account includes general information
+// Account contains general information
 type Account struct {
 	ID           string        `json:"id"`
 	Name         string        `json:"name"`
@@ -56,6 +38,12 @@ type Account struct {
 	WvWRank      int           `json:"wvw_rank"`
 }
 
+// Account returns general account information
+func (s *Session) Account() (account Account, err error) {
+	err = s.getWithAuth("/v2/account", &account)
+	return
+}
+
 // AccountAchievement contains the unlock status for an achievement
 type AccountAchievement struct {
 	ID      int  `json:"id"`
@@ -64,68 +52,80 @@ type AccountAchievement struct {
 	Done    bool `json:"done"`
 }
 
-// GetAccount returns the owner account of the apikey provided
-func (s *Session) GetAccount() (account Account, err error) {
-	err = s.getWithAuth("/v2/account", &account)
-	return
-}
-
-// GetAccountAchievements returns the accounts achievement status for the given ids
-func (s *Session) GetAccountAchievements(ids ...int) (accountAchievements []*AccountAchievement, err error) {
+// AccountAchievements returns the accounts achievement status for the given ids
+func (s *Session) AccountAchievements(ids ...int) (accountAchievements []*AccountAchievement, err error) {
 	err = s.getWithAuth(concatStrings("/v2/account/achievements", genArgs(ids...)), &accountAchievements)
 	return
 }
 
-// GetAccountBuildStorage returns all builds stored in the accounts build storage
-func (s *Session) GetAccountBuildStorage(ids ...int) (buildstorage []*BuildTemplate, err error) {
+// AccountBuildStorage returns all builds stored in the accounts build storage
+func (s *Session) AccountBuildStorage(ids ...int) (buildstorage []*BuildTemplate, err error) {
 	err = s.getWithAuth(concatStrings("/v2/account/buildstorage", genArgs(ids...)), &buildstorage)
 	return
 }
 
-// GetAccountDailyCrafting returns the accounts daily crafted items
-func (s *Session) GetAccountDailyCrafting(ids ...int) (items []*AccountDailyCraftingItem, err error) {
+// AccountDailyCraftingItem is an object crafted daily
+type AccountDailyCraftingItem struct {
+	ID string `json:"id"`
+}
+
+// AccountDailyCrafting returns the accounts daily crafted items
+func (s *Session) AccountDailyCrafting(ids ...int) (items []*AccountDailyCraftingItem, err error) {
 	err = s.getWithAuth(concatStrings("/v2/account/dailycrafting", genArgs(ids...)), &items)
 	return
 }
 
-// GetAccountDungeons returns the dungeons paths completed since daily reset
-func (s *Session) GetAccountDungeons() (paths []string, err error) {
+// AccountDungeons returns the dungeons paths completed since daily reset
+func (s *Session) AccountDungeons() (paths []string, err error) {
 	err = s.getWithAuth("/v2/account/dungeons", &paths)
 	return
 }
 
-// GetAccountDyes returns all dye unlocks
-func (s *Session) GetAccountDyes() (dyes []int, err error) {
+// AccountDyes returns all dye unlocks
+func (s *Session) AccountDyes() (dyes []int, err error) {
 	err = s.getWithAuth("/v2/account/dyes", &dyes)
 	return
 }
 
-// GetAccountFinishers returns all finisher unlocks
-func (s *Session) GetAccountFinishers() (finishers []*AccountFinisher, err error) {
+// AccountFinisher is an finisher unluck for an account
+type AccountFinisher struct {
+	ID        int  `json:"id"`
+	Permanent bool `json:"permanent"`
+	Quantity  int  `json:"qantity"`
+}
+
+// AccountFinishers returns all finisher unlocks
+func (s *Session) AccountFinishers() (finishers []*AccountFinisher, err error) {
 	err = s.getWithAuth("/v2/account/finishers", &finishers)
 	return
 }
 
-// GetAccountGliders returns all glider unlocks
-func (s *Session) GetAccountGliders() (gliders []int, err error) {
+// AccountGliders returns all glider unlocks
+func (s *Session) AccountGliders() (gliders []int, err error) {
 	err = s.getWithAuth("/v2/account/gliders", &gliders)
 	return
 }
 
-// GetAccountHomeCats returns all home cat unlocks
-func (s *Session) GetAccountHomeCats() (cats []*AccountHomeCat, err error) {
+// AccountHomeCat is a home cat node
+type AccountHomeCat struct {
+	ID   int    `json:"id"`
+	Hint string `json:"hint"`
+}
+
+// AccountHomeCats returns all home cat unlocks
+func (s *Session) AccountHomeCats() (cats []*AccountHomeCat, err error) {
 	err = s.getWithAuth("/v2/account/home/cats", &cats)
 	return
 }
 
-// GetAccountHomeNodes returns all home node unlocks
-func (s *Session) GetAccountHomeNodes() (nodes []string, err error) {
+// AccountHomeNodes returns all home node unlocks
+func (s *Session) AccountHomeNodes() (nodes []string, err error) {
 	err = s.getWithAuth("/v2/account/home/nodes", &nodes)
 	return
 }
 
-// GetAccountSharedInventory returns the items stored in the shared inventory slots
-func (s *Session) GetAccountSharedInventory() (items []*ItemStack, err error) {
+// AccountSharedInventory returns the items stored in the shared inventory slots
+func (s *Session) AccountSharedInventory() (items []*ItemStack, err error) {
 	err = s.getWithAuth("/v2/account/inventory", &items)
 	return
 }
@@ -136,20 +136,20 @@ type AccountLuck struct {
 	Value int    `json:"value"`
 }
 
-// GetAccountLuck returns the accounts luck
-func (s *Session) GetAccountLuck() (luck AccountLuck, err error) {
+// AccountLuck returns the accounts luck
+func (s *Session) AccountLuck() (luck AccountLuck, err error) {
 	err = s.getWithAuth("/v2/account/luck", &luck)
 	return
 }
 
-// GetAccountMailCarriers the accounts unlocked mailcarriers
-func (s *Session) GetAccountMailCarriers() (carriers []int, err error) {
+// AccountMailCarriers the accounts unlocked mailcarriers
+func (s *Session) AccountMailCarriers() (carriers []int, err error) {
 	err = s.getWithAuth("/v2/account/mailcarries", &carriers)
 	return
 }
 
-// GetAccountMapChests returns all Hero's choice chests unlocked since daily reset
-func (s *Session) GetAccountMapChests() (chests []string, err error) {
+// AccountMapChests returns all Hero's choice chests unlocked since daily reset
+func (s *Session) AccountMapChests() (chests []string, err error) {
 	err = s.getWithAuth("/v2/account/mapchests", &chests)
 	return
 }
@@ -160,8 +160,8 @@ type AccountMastery struct {
 	Level int    `json:"level"`
 }
 
-// GetAccountMasteries returns all masteries and their levels unlocked
-func (s *Session) GetAccountMasteries() (masteries []*AccountMastery, err error) {
+// AccountMasteries returns all masteries and their levels unlocked
+func (s *Session) AccountMasteries() (masteries []*AccountMastery, err error) {
 	err = s.getWithAuth("/v2/account/masteries", &masteries)
 	return
 }
@@ -176,8 +176,8 @@ type AccountMasteryPoints struct {
 	Unlocked []int `json:"unlocked"` // Array of mastery ids
 }
 
-// GetAccountMasteryPoints returns the mastery points for each region
-func (s *Session) GetAccountMasteryPoints() (masteryPoints AccountMasteryPoints, err error) {
+// AccountMasteryPoints returns the mastery points for each region
+func (s *Session) AccountMasteryPoints() (masteryPoints AccountMasteryPoints, err error) {
 	err = s.getWithAuth("/v2/account/mastery/points", &masteryPoints)
 	return
 }
@@ -190,68 +190,68 @@ type Material struct {
 	Count    int    `json:"count"`
 }
 
-// GetAccountMaterials returns the accounts materials stored
-func (s *Session) GetAccountMaterials() (materials []*Material, err error) {
+// AccountMaterials returns the accounts materials stored
+func (s *Session) AccountMaterials() (materials []*Material, err error) {
 	err = s.getWithAuth("/v2/account/materials", &materials)
 	return
 }
 
-// GetAccountMinis returns the accounts mini unlocks
-func (s *Session) GetAccountMinis() (minis []int, err error) {
+// AccountMinis returns the accounts mini unlocks
+func (s *Session) AccountMinis() (minis []int, err error) {
 	err = s.getWithAuth("/v2/account/minis", &minis)
 	return
 }
 
-// GetAccountMountSkins returns the accounts mountskin unlocks
-func (s *Session) GetAccountMountSkins() (skins []int, err error) {
+// AccountMountSkins returns the accounts mountskin unlocks
+func (s *Session) AccountMountSkins() (skins []int, err error) {
 	err = s.getWithAuth("/v2/account/mounts/skins", &skins)
 	return
 }
 
-// GetAccountMountTypes returns the accounts mount unlocks
-func (s *Session) GetAccountMountTypes() (types []int, err error) {
+// AccountMountTypes returns the accounts mount unlocks
+func (s *Session) AccountMountTypes() (types []int, err error) {
 	err = s.getWithAuth("/v2/account/mounts/types", &types)
 	return
 }
 
-// GetAccountNovelties returns the accounts novelties unlocks
-func (s *Session) GetAccountNovelties() (novelties []int, err error) {
+// AccountNovelties returns the accounts novelties unlocks
+func (s *Session) AccountNovelties() (novelties []int, err error) {
 	err = s.getWithAuth("/v2/account/novelties", &novelties)
 	return
 }
 
-// GetAccountOutfits returns the accounts outfit unlocks
-func (s *Session) GetAccountOutfits() (outfits []int, err error) {
+// AccountOutfits returns the accounts outfit unlocks
+func (s *Session) AccountOutfits() (outfits []int, err error) {
 	err = s.getWithAuth("/v2/account/outfits", &outfits)
 	return
 }
 
-// GetAccountPvPHeroes returns the accounts pvp hero unlocks
-func (s *Session) GetAccountPvPHeroes() (heroes []int, err error) {
+// AccountPvPHeroes returns the accounts pvp hero unlocks
+func (s *Session) AccountPvPHeroes() (heroes []int, err error) {
 	err = s.getWithAuth("/v2/account/pvp/heroes", &heroes)
 	return
 }
 
-// GetAccountRaids returns the completed raid encounters since the weekly raid reset
-func (s *Session) GetAccountRaids() (bosses []string, err error) {
+// AccountRaids returns the completed raid encounters since the weekly raid reset
+func (s *Session) AccountRaids() (bosses []string, err error) {
 	err = s.getWithAuth("/v2/account/raids", &bosses)
 	return
 }
 
-// GetAccountRecipes returns information about recipes that are unlocked for an account
-func (s *Session) GetAccountRecipes() (recipes []int, err error) {
+// AccountRecipes returns information about recipes that are unlocked for an account
+func (s *Session) AccountRecipes() (recipes []int, err error) {
 	err = s.getWithAuth("/v2/account/recipes", &recipes)
 	return
 }
 
-// GetAccountSkins returns the unlocked skins of the account
-func (s *Session) GetAccountSkins() (skins []int, err error) {
+// AccountSkins returns the unlocked skins of the account
+func (s *Session) AccountSkins() (skins []int, err error) {
 	err = s.getWithAuth("/v2/account/skins", &skins)
 	return
 }
 
-// GetAccountTitles returns information about titles that are unlocked for an account
-func (s *Session) GetAccountTitles() (titles []int, err error) {
+// AccountTitles returns information about titles that are unlocked for an account
+func (s *Session) AccountTitles() (titles []int, err error) {
 	err = s.getWithAuth("/v2/account/titles", &titles)
 	return
 }
@@ -262,14 +262,14 @@ type Currency struct {
 	Value int `json:"value"`
 }
 
-// GetAccountWallet returns the currencies of the account
-func (s *Session) GetAccountWallet() (wallet []*Currency, err error) {
+// AccountWallet returns the currencies of the account
+func (s *Session) AccountWallet() (wallet []*Currency, err error) {
 	err = s.getWithAuth("/v2/account/wallet", &wallet)
 	return
 }
 
-// GetAccountWorldbosses returns information about which world bosses have been killed by the account since daily reset
-func (s *Session) GetAccountWorldbosses() (bosses []string, err error) {
+// AccountWorldbosses returns information about which world bosses have been killed by the account since daily reset
+func (s *Session) AccountWorldbosses() (bosses []string, err error) {
 	err = s.getWithAuth("/v2/account/worldbosses", &bosses)
 	return
 }
