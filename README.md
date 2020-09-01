@@ -1,8 +1,6 @@
 # GW2API
 
-A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Client in Go.
-
-**This Module is still Work In Progress and not stable yet.**
+A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Wrapper Client in Go.
 
 ## Installation
 
