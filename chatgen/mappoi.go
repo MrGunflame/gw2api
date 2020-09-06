@@ -10,7 +10,7 @@ func EncodeMapPoI(id int) string {
 	bytes := []byte{headerByteMapPoI}
 
 	for i := 0; i < 3; i++ {
-		bytes = append(bytes, byte(id)>>(8*i))
+		bytes = append(bytes, byte(id>>(8*i)))
 	}
 
 	bytes = append(bytes, 0)
