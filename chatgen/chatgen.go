@@ -10,7 +10,7 @@ const (
 	headerByteCoin          = 0x01
 	headerByteItem          = 0x02
 	headerByteNPC           = 0x03
-	headerByteMapObject     = 0x04
+	headerByteMapPoI        = 0x04
 	headerBytePvPGame       = 0x05
 	headerByteSkill         = 0x06
 	headerByteTrait         = 0x07
