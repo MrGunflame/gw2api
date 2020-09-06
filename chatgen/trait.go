@@ -22,6 +22,10 @@ func DecodeTrait(link string) (int, error) {
 		return 0, err
 	}
 
+	if len(bytes) < 5 || bytes[0] != headerByteTrait {
+		return 0, ErrInvalidHeader
+	}
+
 	var id int
 	for i := 0; i < 3; i++ {
 		id += int(bytes[i+1]) << (8 * i)
