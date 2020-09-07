@@ -27,9 +27,11 @@ func concatStrings(args ...string) string {
 	return b.String()
 }
 
-func itoaSlice(sl []int) (strs []string) {
+// iotaSlice converts a slice of ints into a slice of strings
+func itoaSlice(sl []int) []string {
+	var strs []string
 	for _, x := range sl {
 		strs = append(strs, strconv.Itoa(x))
 	}
-	return
+	return strs
 }
