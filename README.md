@@ -82,7 +82,6 @@ func main() {
 - [x] /v2/account/wallet
 - [x] /v2/account/worldbosses
 - [x] /v2/characters
-- [ ] /v2/commerce/transactions
 - [ ] /v2/pvp/stats
 - [ ] /v2/pvp/games
 - [ ] /v2/pvp/standings
