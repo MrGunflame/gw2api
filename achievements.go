@@ -26,6 +26,12 @@ type Achievement struct {
 	PointCap int `json:"point_cap"`
 }
 
+// Achievements returns an game achievement
+func (s *Session) Achievements(ids ...int) (achievements []*Achievement, err error) {
+	err = s.get(concatStrings("/v2/achievements", genArgs(ids...)), &achievements)
+	return
+}
+
 // DailyAchievement is a daiy achievement
 type DailyAchievement struct {
 	ID    int `json:"id"`
@@ -36,6 +42,18 @@ type DailyAchievement struct {
 	RequiredAccess []string `json:"required_access"`
 }
 
+// DailyAchievements returns a map of daily achievements. Each map key stands for a different section, e.g. pve, wvw, fractals, ...
+func (s *Session) DailyAchievements() (daily map[string][]*DailyAchievement, err error) {
+	err = s.get("/v2/achievements/daily", &daily)
+	return
+}
+
+// TomorrowDailyAchievements works the same as DailyAchievements. It returns the daily achievements for tomorrow
+func (s *Session) TomorrowDailyAchievements() (daily map[string][]*DailyAchievement, err error) {
+	err = s.get("/v2/achievements/daily/tomorrow", &daily)
+	return
+}
+
 // AchievementGroup is an achievement group
 type AchievementGroup struct {
 	ID          string `json:"id"`
@@ -43,6 +61,12 @@ type AchievementGroup struct {
 	Description string `json:"description"`
 	Order       int    `json:"order"`
 	Categories  []int  `json:"categories"`
+}
+
+// AchievementGroups returns all achievement groups
+func (s *Session) AchievementGroups(ids ...string) (groups []*AchievementGroup, err error) {
+	err = s.get(concatStrings("/v2/achievements/groups", genArgsString(ids...)), &groups)
+	return
 }
 
 // AchievementCategory is an achievement category
@@ -55,32 +79,8 @@ type AchievementCategory struct {
 	Achievements []int  `json:"achievement"`
 }
 
-// GetAchievements returns an game achievement
-func (s *Session) GetAchievements(ids ...int) (achievements []*Achievement, err error) {
-	err = s.get(concatStrings("/v2/achievements", genArgs(ids...)), &achievements)
-	return
-}
-
-// GetDailyAchievements returns a map of daily achievements. Each map key stands for a different section, e.g. pve, wvw, fractals, ...
-func (s *Session) GetDailyAchievements() (daily map[string][]*DailyAchievement, err error) {
-	err = s.get("/v2/achievements/daily", &daily)
-	return
-}
-
-// GetTomorrowDailyAchievements works the same as GetDailyAchievements. It returns the daily achievements for tomorrow
-func (s *Session) GetTomorrowDailyAchievements() (daily map[string][]*DailyAchievement, err error) {
-	err = s.get("/v2/achievements/daily/tomorrow", &daily)
-	return
-}
-
-// GetAchievementGroups returns all achievement groups
-func (s *Session) GetAchievementGroups(ids ...string) (groups []*AchievementGroup, err error) {
-	err = s.get(concatStrings("/v2/achievements/groups", genArgsString(ids...)), &groups)
-	return
-}
-
-// GetAchievementCategories returns all achievement categories
-func (s *Session) GetAchievementCategories(ids ...int) (categories []*AchievementCategory, err error) {
+// AchievementCategories returns all achievement categories
+func (s *Session) AchievementCategories(ids ...int) (categories []*AchievementCategory, err error) {
 	err = s.get(concatStrings("/v2/achievements/categories", genArgs(ids...)), &categories)
 	return
 }
