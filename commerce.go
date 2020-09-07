@@ -2,7 +2,7 @@ package gw2api
 
 import "strconv"
 
-// CommerceDelivery contains the coins and items avaliable for pickup
+// CommerceDelivery contains the coins and items available for pickup
 type CommerceDelivery struct {
 	Coins int `json:"coins"`
 	Items []struct {
@@ -11,7 +11,7 @@ type CommerceDelivery struct {
 	} `json:"items"`
 }
 
-// CommerceDelivery returns coins and items avaiable for pickup for the account
+// CommerceDelivery returns coins and items available for pickup for the account
 func (s *Session) CommerceDelivery() (delivery CommerceDelivery, err error) {
 	err = s.getWithAuth("/v2/commerce/delivery", &delivery)
 	return
@@ -83,7 +83,7 @@ type CommerceTransaction struct {
 	Price     int    `json:"price"`
 	Quantity  int    `json:"quantity"`
 	Created   string `json:"created"`
-	Purchased string `json:"purchased"` // Only avaliable from history
+	Purchased string `json:"purchased"` // Only available from history
 }
 
 // CommerceTransactionsCurrent returns the accounts current transactions
