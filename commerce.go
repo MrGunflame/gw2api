@@ -11,10 +11,28 @@ type CommerceDelivery struct {
 	} `json:"items"`
 }
 
+// CommerceDelivery returns coins and items avaiable for pickup for the account
+func (s *Session) CommerceDelivery() (delivery CommerceDelivery, err error) {
+	err = s.getWithAuth("/v2/commerce/delivery", &delivery)
+	return
+}
+
 // CommerceCoinGemExchange contains information about exchanging gems to coins and vice versa
 type CommerceCoinGemExchange struct {
 	CoinsPerGem int `json:"coins_per_gem"`
 	Quantity    int `json:"quantity"`
+}
+
+// CommerceExchangeCoins returns how many gems you get for the provided amount of coins
+func (s *Session) CommerceExchangeCoins(quantity int) (exchange CommerceCoinGemExchange, err error) {
+	err = s.get(concatStrings("/v2/commerce/exchange/coins?quantity=", strconv.Itoa(quantity)), &exchange)
+	return
+}
+
+// CommerceExchangeGems returns how many coins you get for the provided amount of gems
+func (s *Session) CommerceExchangeGems(quantity int) (exchange CommerceCoinGemExchange, err error) {
+	err = s.get(concatStrings("/v2/commerce/exchange/gems?quantity=", strconv.Itoa(quantity)), &exchange)
+	return
 }
 
 // CommerceListing contains an items buy and sell orders
@@ -32,6 +50,12 @@ type CommerceListing struct {
 	} `json:"sells"`
 }
 
+// CommerceListings returns all buy and sell orders for the items
+func (s *Session) CommerceListings(ids ...int) (items []*CommerceListing, err error) {
+	err = s.get(concatStrings("/v2/commerce/listings", genArgs(ids...)), &items)
+	return
+}
+
 // CommercePrice contains the currently highest buy price and lowest sell price
 type CommercePrice struct {
 	ID          int  `json:"id"`          // The item id
@@ -46,6 +70,12 @@ type CommercePrice struct {
 	} `json:"sells"`
 }
 
+// CommercePrices returns the current tp prices for the requested ids
+func (s *Session) CommercePrices(ids ...int) (st []*CommercePrice, err error) {
+	err = s.get(concatStrings("/v2/commerce/prices", genArgs(ids...)), &st)
+	return
+}
+
 // CommerceTransaction is an item waiting for exchanging or exchanged in the trading post
 type CommerceTransaction struct {
 	ID        int    `json:"id"`
@@ -56,38 +86,14 @@ type CommerceTransaction struct {
 	Purchased string `json:"purchased"` // Only avaliable from history
 }
 
-// GetCommerceDelivery returns coins and items avaiable for pickup for the account
-func (s *Session) GetCommerceDelivery() (delivery CommerceDelivery, err error) {
-	err = s.getWithAuth("/v2/commerce/delivery", &delivery)
-	return
-}
-
-// GetCommerceExchangeCoins returns how many gems you get for the provided amount of coins
-func (s *Session) GetCommerceExchangeCoins(quantity int) (exchange CommerceCoinGemExchange, err error) {
-	err = s.get(concatStrings("/v2/commerce/exchange/coins?quantity=", strconv.Itoa(quantity)), &exchange)
-	return
-}
-
-// GetCommerceExchangeGems returns how many coins you get for the provided amount of gems
-func (s *Session) GetCommerceExchangeGems(quantity int) (exchange CommerceCoinGemExchange, err error) {
-	err = s.get(concatStrings("/v2/commerce/exchange/gems?quantity=", strconv.Itoa(quantity)), &exchange)
-	return
-}
-
-// GetCommerceListings returns all buy and sell orders for the items
-func (s *Session) GetCommerceListings(ids ...int) (items []*CommerceListing, err error) {
-	err = s.get(concatStrings("/v2/commerce/listings", genArgs(ids...)), &items)
-	return
-}
-
-// GetCommerceTransactionsCurrent returns the accounts current transactions
-func (s *Session) GetCommerceTransactionsCurrent() (transactions []*CommerceTransaction, err error) {
+// CommerceTransactionsCurrent returns the accounts current transactions
+func (s *Session) CommerceTransactionsCurrent() (transactions []*CommerceTransaction, err error) {
 	err = s.getWithAuth("/v2/commerce/transactions/current", &transactions)
 	return
 }
 
-// GetCommerceTransactionsHistory returns the accounts transaction history
-func (s *Session) GetCommerceTransactionsHistory() (transactions []*CommerceTransaction, err error) {
+// CommerceTransactionsHistory returns the accounts transaction history
+func (s *Session) CommerceTransactionsHistory() (transactions []*CommerceTransaction, err error) {
 	err = s.getWithAuth("/v2/commerce/transactions/history", &transactions)
 	return
 }
