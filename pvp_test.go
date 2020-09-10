@@ -1,36 +1,63 @@
 package gw2api
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
-func TestPvP(t *testing.T) {
+func TestPvPStats(t *testing.T) {
+	key := os.Getenv("APIKEY")
+	if key == "" {
+		t.Skip("Unable to test without APIKEY")
+	}
+
+	api := New().WithAccessToken(key)
+	if _, err := api.PvPStats(); err != nil {
+		t.Errorf("PvPStats failed: '%s'", err)
+	}
+}
+
+func TestPvPGames(t *testing.T) {
+	key := os.Getenv("APIKEY")
+	if key == "" {
+		t.Skip("Unable to test without APIKEY")
+	}
+
 	api := New()
-	apiAuth := New().WithAccessToken(testAccessToken)
+	if _, err := api.PvPGames(); err != nil {
+		t.Errorf("PvPGames failed: '%s'", err)
+	}
+}
 
-	if _, err := apiAuth.GetPvPStats(); err != nil {
-		t.Error("GetPvPStats failed: ", err)
+func TestPvPStandings(t *testing.T) {
+	key := os.Getenv("APIKEY")
+	if key == "" {
+		t.Skip("Unable to test without APIKEY")
 	}
 
-	if _, err := apiAuth.GetPvPGames(); err != nil {
-		t.Error("GetPvPGames failed: ", err)
+	api := New()
+	if _, err := api.PvPStandings(); err != nil {
+		t.Errorf("PvPStandings failed: '%s'", err)
 	}
+}
 
-	if _, err := apiAuth.GetPvPStandings(); err != nil {
-		t.Error("GetPvPStandings failed: ", err)
+func TestPvPRanks(t *testing.T) {
+	api := New()
+	if _, err := api.PvPRanks(); err != nil {
+		t.Errorf("PvPRanks failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetPvPAmulets(); err != nil {
-		t.Error("GetPvPAmulets failed: ", err)
+func TestPvPSeasons(t *testing.T) {
+	api := New()
+	if _, err := api.PvPSeasons(); err != nil {
+		t.Errorf("PvPSeasons failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetPvPRanks(); err != nil {
-		t.Error("GetPvPRanks failed: ", err)
-	}
-
-	if _, err := api.GetPvPSeasons(); err != nil {
-		t.Error("GetPvPSeasons failed: ", err)
-	}
-
-	if _, err := api.GetPvPSeasonLeaderboards("088D9941-21E7-4335-A0C2-4365A8D46B1F"); err != nil {
-		t.Error("GetPvPSeasonLeaderboards failed: ", err)
+func TestPvPSeasonLeaderboards(t *testing.T) {
+	api := New()
+	if _, err := api.PvPSeasonLeaderboards("020A557D-387A-4A6F-904B-D0A0DBEE68FB", "eu"); err != nil {
+		t.Errorf("PvPSeasonLeaderboards failed: '%s'", err)
 	}
 }
