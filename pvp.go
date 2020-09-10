@@ -75,7 +75,7 @@ type PvPRank struct {
 // PvPSeason is a pvp season
 type PvPSeason struct {
 	ID        string `json:"id"`
-	Name      int    `json:"name"`
+	Name      string `json:"name"`
 	Start     string `json:"start"`
 	End       string `json:"end"`
 	Active    bool   `json:"active"`
@@ -89,11 +89,11 @@ type PvPSeason struct {
 			Points int `json:"points"`
 		} `json:"tiers"`
 	} `json:"divisions"`
-	Leaderboards []struct {
+	Leaderboards struct {
 		Ladder struct {
 			Settings struct {
 				Name     string `json:"name"`
-				Duration int    `json:"duratino"`
+				Duration int    `json:"duration"`
 				Scoring  string `json:"scoring"`
 				Tiers    []struct {
 					Range []int `json:"range"`
@@ -124,44 +124,44 @@ type PvPLeaderboardAccount struct {
 	} `json:"scores"`
 }
 
-// GetPvPStats returns the accounts pvp stats
-func (s *Session) GetPvPStats() (stats *PvPStats, err error) {
+// PvPStats returns the accounts pvp stats
+func (s *Session) PvPStats() (stats *PvPStats, err error) {
 	err = s.getWithAuth("/v2/pvp/stats", &stats)
 	return
 }
 
-// GetPvPGames returns the last 10 played matches
-func (s *Session) GetPvPGames(ids ...string) (games *[]PvPGame, err error) {
+// PvPGames returns the last 10 played matches
+func (s *Session) PvPGames(ids ...string) (games *[]PvPGame, err error) {
 	err = s.getWithAuth(concatStrings("/v2/pvp/games", genArgsString(ids...)), &games)
 	return
 }
 
-// GetPvPStandings returns the current seasons account and best ranking
-func (s *Session) GetPvPStandings() (standings *PvPStandings, err error) {
+// PvPStandings returns the current seasons account and best ranking
+func (s *Session) PvPStandings() (standings *PvPStandings, err error) {
 	err = s.getWithAuth("/v2/pvp/standings", &standings)
 	return
 }
 
-// GetPvPAmulets return pvp amulets
-func (s *Session) GetPvPAmulets(ids ...int) (amulets *[]Item, err error) {
+// PvPAmulets return pvp amulets
+func (s *Session) PvPAmulets(ids ...int) (amulets *[]Item, err error) {
 	err = s.get(concatStrings("/v2/pvp/amulets", genArgs(ids...)), &amulets)
 	return
 }
 
-// GetPvPRanks returns pvp ranks
-func (s *Session) GetPvPRanks(ids ...int) (ranks []*PvPRank, err error) {
+// PvPRanks returns pvp ranks
+func (s *Session) PvPRanks(ids ...int) (ranks []*PvPRank, err error) {
 	err = s.get(concatStrings("/v2/pvp/ranks", genArgs(ids...)), &ranks)
 	return
 }
 
-// GetPvPSeasons returns pvp seasons
-func (s *Session) GetPvPSeasons(ids ...string) (seasons []*PvPSeason, err error) {
+// PvPSeasons returns pvp seasons
+func (s *Session) PvPSeasons(ids ...string) (seasons []*PvPSeason, err error) {
 	err = s.get(concatStrings("/v2/pvp/seasons", genArgsString(ids...)), &seasons)
 	return
 }
 
-// GetPvPSeasonLeaderboards returns the leaderboards for a pvp season. Only one id can be given. It returns a map for all regions: eu, na
-func (s *Session) GetPvPSeasonLeaderboards(id string) (leaderboards *map[string][]*PvPLeaderboardAccount, err error) {
-	err = s.get(concatStrings("/v2/pvp/seasons/", id, "/leaderboards"), &leaderboards)
+// PvPSeasonLeaderboards returns the leaderboards for a pvp season. Only one id can be given. Valid regions are na or eu
+func (s *Session) PvPSeasonLeaderboards(id, region string) (leaderboards []*PvPLeaderboardAccount, err error) {
+	err = s.get(concatStrings("/v2/pvp/seasons/", id, "/leaderboards/ladder/", region), &leaderboards)
 	return
 }
