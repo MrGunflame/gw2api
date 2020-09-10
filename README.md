@@ -60,8 +60,9 @@ func main() {
 - [x] /v2/account/dyes
 - [x] /v2/account/finishers
 - [x] /v2/account/gliders
-- [x] /v2/account/home/cats
-- [x] /v2/account/home/nodes
+- [x] /v2/account/home
+    - [x] /v2/account/home/cats
+    - [x] /v2/account/home/nodes
 - [x] /v2/account/inventory
 - [x] /v2/account/luck
 - [x] /v2/account/mailcarriers
