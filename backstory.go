@@ -22,7 +22,7 @@ type BackStoryQuestion struct {
 	ID          int      `json:"id"`
 	Title       string   `json:"title"`
 	Description string   `json:"description"`
-	Answers     []int    `json:"answers"`
+	Answers     []string `json:"answers"`
 	Order       int      `json:"order"`
 	Races       []string `json:"races"`
 	Professions []string `json:"professions"`
