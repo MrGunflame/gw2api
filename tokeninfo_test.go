@@ -1,11 +1,18 @@
 package gw2api
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
-func TestTokenInfo(t *testing.T) {
-	apiAuth := New().WithAccessToken(testAccessToken)
+func TestTokeninfo(t *testing.T) {
+	key := os.Getenv("APIKEY")
+	if key == "" {
+		t.Skip("Unable to test without APIKEY")
+	}
 
-	if _, err := apiAuth.GetTokenInfo(); err != nil {
-		return
+	api := New().WithAccessToken(key)
+	if _, err := api.Tokeninfo(); err != nil {
+		t.Errorf("Tokeninfo failed: '%s'", err)
 	}
 }
