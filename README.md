@@ -83,9 +83,9 @@ func main() {
 - [x] /v2/account/wallet
 - [x] /v2/account/worldbosses
 - [x] /v2/characters
-- [ ] /v2/pvp/stats
-- [ ] /v2/pvp/games
-- [ ] /v2/pvp/standings
+- [x] /v2/pvp/stats
+- [x] /v2/pvp/games
+- [x] /v2/pvp/standings
 - [x] /v2/tokeninfo
 - [ ] /v2/dailycrafting
 - [ ] /v2/mapchests
