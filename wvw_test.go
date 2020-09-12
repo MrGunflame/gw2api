@@ -2,30 +2,44 @@ package gw2api
 
 import "testing"
 
-func TestWvW(t *testing.T) {
+func TestWvWAbilities(t *testing.T) {
 	api := New()
-
-	if _, err := api.GetWvWAbilities(); err != nil {
-		t.Error("GetWvWAbilities failed: ", err)
+	if _, err := api.WvWAbilities(); err != nil {
+		t.Errorf("WvWAbilities failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetWvWMatches(); err != nil {
-		t.Error("GetWvWMatches failed: ", err)
+func TestWvWMatches(t *testing.T) {
+	api := New()
+	if _, err := api.WvWMatches(); err != nil {
+		t.Errorf("WvWmatches failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetWvWMatchByWorldID(2003); err != nil {
-		t.Error("GetWvWMatchByWorldID failed: ", err)
+func TestWvWMatchByWorldID(t *testing.T) {
+	api := New()
+	if _, err := api.WvWMatchByWorldID(2008); err != nil {
+		t.Errorf("WvWmatchByWorldID failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetWvWObjectives(); err != nil {
-		t.Error("GetWvWObjectives failed: ", err)
+func TestWvWObjectives(t *testing.T) {
+	api := New()
+	if _, err := api.WvWObjectives(); err != nil {
+		t.Errorf("WvWObjectives failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetWvWRanks(); err != nil {
-		t.Error("GetWvWRanks failed: ", err)
+func TestWvWRanks(t *testing.T) {
+	api := New()
+	if _, err := api.WvWRanks(); err != nil {
+		t.Errorf("WvWRanks failed: '%s'", err)
 	}
+}
 
-	if _, err := api.GetWvWUpgrades(); err != nil {
-		t.Error("GetWvWUpgrades failed: ", err)
+func TestWvWUpgrades(t *testing.T) {
+	api := New()
+	if _, err := api.WvWUpgrades(); err != nil {
+		t.Errorf("WvWUpgrades failed: '%s'", err)
 	}
 }
