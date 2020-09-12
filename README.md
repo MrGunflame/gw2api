@@ -61,8 +61,8 @@ func main() {
 - [x] /v2/account/finishers
 - [x] /v2/account/gliders
 - [x] /v2/account/home
-    - [x] /v2/account/home/cats
-    - [x] /v2/account/home/nodes
+- [x] /v2/account/home/cats
+- [x] /v2/account/home/nodes
 - [x] /v2/account/inventory
 - [x] /v2/account/luck
 - [x] /v2/account/mailcarriers
@@ -137,15 +137,15 @@ func main() {
 - [ ] /v2/raids
 - [ ] /v2/titles
 - [x] /v2/worlds
-- [ ] /v2/backstory/answers
-- [ ] /v2/backstory/questions
+- [x] /v2/backstory/answers
+- [x] /v2/backstory/questions
 - [ ] /v2/stories
 - [ ] /v2/stories/seasons
 - [ ] /v2/quests
-- [ ] /v2/pvp
-- [ ] /v2/pvp/ranks
-- [ ] /v2/pvp/seasons
-- [ ] /v2/pvp/seasons/:id/leaderboards
+- [x] /v2/pvp
+- [x] /v2/pvp/ranks
+- [x] /v2/pvp/seasons
+- [x] /v2/pvp/seasons/:id/leaderboards
 - [x] /v2/commerce/delivery
 - [x] /v2/commerce/exchange
 - [x] /v2/commerce/exchange/coins
