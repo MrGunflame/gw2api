@@ -7,8 +7,8 @@ type TokenInfo struct {
 	Permissions []string `json:"permissions"`
 }
 
-// GetTokenInfo returns general information about the provided token
-func (s *Session) GetTokenInfo() (tokeninfo TokenInfo, err error) {
+// Tokeninfo returns general information about the provided token
+func (s *Session) Tokeninfo() (tokeninfo TokenInfo, err error) {
 	err = s.getWithAuth("/v2/tokeninfo", &tokeninfo)
 	return
 }
