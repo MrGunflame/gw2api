@@ -94,38 +94,38 @@ type WvWUpgrade struct {
 	} `json:"tiers"`
 }
 
-// GetWvWAbilities returns trainable wvw abilities
-func (s *Session) GetWvWAbilities(ids ...int) (abilities []*WvWAbility, err error) {
+// WvWAbilities returns trainable wvw abilities
+func (s *Session) WvWAbilities(ids ...int) (abilities []*WvWAbility, err error) {
 	err = s.get(concatStrings("/v2/wvw/abilities", genArgs(ids...)), &abilities)
 	return
 }
 
-// GetWvWMatches returns currently active matches
-func (s *Session) GetWvWMatches(ids ...string) (matches []*WvWMatch, err error) {
+// WvWMatches returns currently active matches
+func (s *Session) WvWMatches(ids ...string) (matches []*WvWMatch, err error) {
 	err = s.get(concatStrings("/v2/wvw/matches", genArgsString(ids...)), &matches)
 	return
 }
 
-// GetWvWMatchByWorldID returns the match based on the participating world
-func (s *Session) GetWvWMatchByWorldID(id int) (match *WvWMatch, err error) {
+// WvWMatchByWorldID returns the match based on the participating world
+func (s *Session) WvWMatchByWorldID(id int) (match *WvWMatch, err error) {
 	err = s.get(concatStrings("/v2/wvw/matches?world=", strconv.Itoa(id)), &match)
 	return
 }
 
-// GetWvWObjectives returns wvw objectives
-func (s *Session) GetWvWObjectives(ids ...string) (objectives []*WvWObjective, err error) {
+// WvWObjectives returns wvw objectives
+func (s *Session) WvWObjectives(ids ...string) (objectives []*WvWObjective, err error) {
 	err = s.get(concatStrings("/v2/wvw/objectives", genArgsString(ids...)), &objectives)
 	return
 }
 
-// GetWvWRanks returns wvw ranks
-func (s *Session) GetWvWRanks(ids ...int) (ranks []*WvWRank, err error) {
+// WvWRanks returns wvw ranks
+func (s *Session) WvWRanks(ids ...int) (ranks []*WvWRank, err error) {
 	err = s.get(concatStrings("/v2/wvw/ranks", genArgs(ids...)), &ranks)
 	return
 }
 
-// GetWvWUpgrades returns wvw objectives upgrades
-func (s *Session) GetWvWUpgrades(ids ...int) (upgrades []*WvWUpgrade, err error) {
+// WvWUpgrades returns wvw objectives upgrades
+func (s *Session) WvWUpgrades(ids ...int) (upgrades []*WvWUpgrade, err error) {
 	err = s.get(concatStrings("/v2/wvw/upgrades", genArgs(ids...)), &upgrades)
 	return
 }
