@@ -87,9 +87,9 @@ func main() {
 - [x] /v2/pvp/games
 - [x] /v2/pvp/standings
 - [x] /v2/tokeninfo
-- [ ] /v2/dailycrafting
-- [ ] /v2/mapchests
-- [ ] /v2/worldbosses
+- [x] /v2/dailycrafting
+- [x] /v2/mapchests
+- [x] /v2/worldbosses
 - [ ] /v2/masteries
 - [ ] /v2/mounts
 - [ ] /v2/mounts/skins
