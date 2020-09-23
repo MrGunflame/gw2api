@@ -33,9 +33,9 @@ type BuildTemplate struct {
 	Specializations              [3]BuildTemplateSpecialization
 	Skills                       [5]int
 	AquaticSkills                [5]int
-	RangerPets                   [4]uint8 // Terrestial Pet 1, Terrestial Pet 2, Aquatic Pet 1, Aquatic Pet 2
-	RevenantLegends              [4]uint8 // Terrestial Legend 1, Terrestial Legend 2, Aquatic Legend 1, Aquatic Legend 2
-	RevenantInactiveLegendSkills [6]int   // Terrestial Skill 1, 2, 3, Aquatic Skill 1, 2, 3
+	RangerPets                   [4]uint8 // Terrestrial Pet 1, Terrestrial Pet 2, Aquatic Pet 1, Aquatic Pet 2
+	RevenantLegends              [4]uint8 // Terrestrial Legend 1, Terrestrial Legend 2, Aquatic Legend 1, Aquatic Legend 2
+	RevenantInactiveLegendSkills [6]int   // Terrestrial Skill 1, 2, 3, Aquatic Skill 1, 2, 3
 }
 
 // BuildTemplateSpecialization contains information about one traitline
@@ -62,7 +62,7 @@ func EncodeBuildTemplate(data BuildTemplate) string {
 	}
 
 	// Skills
-	// 2 bytes per skill, terrestial and aquatic skill alternating
+	// 2 bytes per skill, terrestrial and aquatic skill alternating
 	for i := range data.Skills {
 		for j := 0; j < 2; j++ {
 			bytes = append(bytes, byte(data.Skills[i]>>(8*j)))
@@ -91,7 +91,7 @@ func EncodeBuildTemplate(data BuildTemplate) string {
 		}
 
 		// Revenant inactive legend skills as 2 bytes
-		// 3 Terrestial and 3 aquatic in this order
+		// 3 Terrestrial and 3 aquatic in this order
 		for _, skill := range data.RevenantInactiveLegendSkills {
 			for i := 0; i < 2; i++ {
 				bytes = append(bytes, byte(skill>>(8*i)))
