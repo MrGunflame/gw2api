@@ -1,6 +1,6 @@
 package gw2api
 
-// BackStoryAnswer contains information about the inital story choices during character creation
+// BackStoryAnswer contains information about the initial story choices during character creation
 type BackStoryAnswer struct {
 	ID          string   `json:"id"`
 	Title       string   `json:"title"`
