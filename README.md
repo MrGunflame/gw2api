@@ -91,9 +91,9 @@ func main() {
 - [x] /v2/mapchests
 - [x] /v2/worldbosses
 - [x] /v2/masteries
-- [ ] /v2/mounts
-- [ ] /v2/mounts/skins
-- [ ] /v2/mounts/types
+- [x] /v2/mounts
+- [x] /v2/mounts/skins
+- [x] /v2/mounts/types
 - [ ] /v2/outfits
 - [ ] /v2/pets
 - [ ] /v2/professions
