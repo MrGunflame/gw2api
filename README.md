@@ -90,7 +90,7 @@ func main() {
 - [x] /v2/dailycrafting
 - [x] /v2/mapchests
 - [x] /v2/worldbosses
-- [ ] /v2/masteries
+- [x] /v2/masteries
 - [ ] /v2/mounts
 - [ ] /v2/mounts/skins
 - [ ] /v2/mounts/types
@@ -99,8 +99,8 @@ func main() {
 - [ ] /v2/professions
 - [ ] /v2/races
 - [ ] /v2/specializations
-- [ ] /v2/skills
-- [ ] /v2/traits
+- [x] /v2/skills
+- [x] /v2/traits
 - [ ] /v2/legends
 - [x] /v2/guild/:id
 - [ ] /v2/emblem
