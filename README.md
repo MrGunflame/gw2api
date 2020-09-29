@@ -94,14 +94,14 @@ func main() {
 - [x] /v2/mounts
 - [x] /v2/mounts/skins
 - [x] /v2/mounts/types
-- [ ] /v2/outfits
-- [ ] /v2/pets
-- [ ] /v2/professions
+- [x] /v2/outfits
+- [x] /v2/pets
+- [x] /v2/professions
 - [ ] /v2/races
 - [ ] /v2/specializations
 - [x] /v2/skills
 - [x] /v2/traits
-- [ ] /v2/legends
+- [x] /v2/legends
 - [x] /v2/guild/:id
 - [ ] /v2/emblem
 - [x] /v2/guild/permissions
@@ -114,8 +114,8 @@ func main() {
 - [x] /v2/guild/:id/treasury
 - [x] /v2/guild/:id/teams
 - [x] /v2/guild/:id/upgrades
-- [ ] /v2/home/cats
-- [ ] /v2/home/nodes
+- [x] /v2/home/cats
+- [x] /v2/home/nodes
 - [ ] /v2/finishers
 - [ ] /v2/items
 - [ ] /v2/itemstats
