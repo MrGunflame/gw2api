@@ -165,13 +165,13 @@ func (s *Session) CharacterSkills(character string) (skills CharacterSkills, err
 
 // CharacterSpecializations contains the specializations for all gamemodes
 type CharacterSpecializations struct {
-	PvE []*Specialization `json:"pve"`
-	PvP []*Specialization `json:"pvp"`
-	WvW []*Specialization `json:"wvw"`
+	PvE []*CharacterSpecialization `json:"pve"`
+	PvP []*CharacterSpecialization `json:"pvp"`
+	WvW []*CharacterSpecialization `json:"wvw"`
 }
 
-// Specialization defines a specialization and its trait choices
-type Specialization struct {
+// CharacterSpecialization defines a specialization and its trait choices
+type CharacterSpecialization struct {
 	ID     int   `json:"id"`
 	Traits []int `json:"traits"`
 }
