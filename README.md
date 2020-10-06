@@ -97,13 +97,13 @@ func main() {
 - [x] /v2/outfits
 - [x] /v2/pets
 - [x] /v2/professions
-- [ ] /v2/races
-- [ ] /v2/specializations
+- [x] /v2/races
+- [x] /v2/specializations
 - [x] /v2/skills
 - [x] /v2/traits
 - [x] /v2/legends
 - [x] /v2/guild/:id
-- [ ] /v2/emblem
+- [x] /v2/emblem
 - [x] /v2/guild/permissions
 - [x] /v2/guild/search
 - [x] /v2/guild/upgrades
