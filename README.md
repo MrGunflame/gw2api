@@ -117,7 +117,7 @@ func main() {
 - [x] /v2/home/cats
 - [x] /v2/home/nodes
 - [x] /v2/finishers
-- [ ] /v2/items
+- [x] /v2/items
 - [ ] /v2/itemstats
 - [ ] /v2/materials
 - [ ] /v2/pvp/amulets
