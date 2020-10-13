@@ -116,7 +116,7 @@ func main() {
 - [x] /v2/guild/:id/upgrades
 - [x] /v2/home/cats
 - [x] /v2/home/nodes
-- [ ] /v2/finishers
+- [x] /v2/finishers
 - [ ] /v2/items
 - [ ] /v2/itemstats
 - [ ] /v2/materials
