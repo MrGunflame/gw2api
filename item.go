@@ -1,12 +1,12 @@
 package gw2api
 
 // Item is an game item
-type Item struct {
-	ID         int         `json:"id"`
-	Name       string      `json:"name"`
-	Icon       string      `json:"icon"`
-	Attributes *Attributes `json:"attributes"`
-}
+// type Item struct {
+// 	ID         int         `json:"id"`
+// 	Name       string      `json:"name"`
+// 	Icon       string      `json:"icon"`
+// 	Attributes *Attributes `json:"attributes"`
+// }
 
 // ItemStack is the data contained in requests that return stored items, e.g. bank or shared inventory
 type ItemStack struct {
