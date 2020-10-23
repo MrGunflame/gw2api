@@ -182,8 +182,8 @@ func (s *Session) AccountMasteryPoints() (masteryPoints AccountMasteryPoints, er
 	return
 }
 
-// A Material is an item stored in the players vault/material storage
-type Material struct {
+// A AccountMaterial is an item stored in the players vault/material storage
+type AccountMaterial struct {
 	ID       int    `json:"id"`
 	Category int    `json:"category"`
 	Binding  string `json:"binding"`
