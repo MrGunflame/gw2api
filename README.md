@@ -118,8 +118,8 @@ func main() {
 - [x] /v2/home/nodes
 - [x] /v2/finishers
 - [x] /v2/items
-- [ ] /v2/itemstats
-- [ ] /v2/materials
+- [x] /v2/itemstats
+- [x] /v2/materials
 - [ ] /v2/pvp/amulets
 - [ ] /v2/recipes
 - [ ] /v2/recipes/search
