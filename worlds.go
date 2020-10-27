@@ -7,8 +7,8 @@ type World struct {
 	Population string `json:"population"`
 }
 
-// GetWorld returns worlds
-func (s *Session) GetWorld(ids ...int) (worlds []*World, err error) {
+// Worlds returns worlds
+func (s *Session) Worlds(ids ...int) (worlds []*World, err error) {
 	err = s.get(concatStrings("/v2/worlds", genArgs(ids...)), &worlds)
 	return
 }
