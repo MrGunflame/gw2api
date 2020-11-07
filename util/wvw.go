@@ -1,7 +1,6 @@
 package util
 
 import (
-	"fmt"
 	"math"
 
 	"gitlab.com/MrGunflame/gw2api"
@@ -54,8 +53,9 @@ func PredictNextWvWMatches(matches []*gw2api.WvWMatch) []*gw2api.WvWMatch {
 	nextMatches := make([]*gw2api.WvWMatch, len(matches))
 	for i := range nextMatches {
 		nextMatches[i] = &gw2api.WvWMatch{
-			ID:     matches[i].ID,
-			Worlds: make(map[string]int),
+			ID:        matches[i].ID,
+			Worlds:    make(map[string]int),
+			AllWorlds: make(map[string][]int),
 		}
 	}
 
@@ -78,8 +78,6 @@ func PredictNextWvWMatches(matches []*gw2api.WvWMatch) []*gw2api.WvWMatch {
 	}
 
 	for i, m := range matches {
-		fmt.Println(i)
-
 		var low, high string
 		lowVal, highVal := math.MaxInt64, 0
 		for k, v := range m.VictoryPoints {
@@ -97,18 +95,23 @@ func PredictNextWvWMatches(matches []*gw2api.WvWMatch) []*gw2api.WvWMatch {
 		// Top tier - cannot ascend further
 		if i == 0 {
 			nextMatches[i].Worlds["green"] = m.Worlds[high]
+			nextMatches[i].AllWorlds["green"] = m.AllWorlds[high]
 		} else {
 			nextMatches[i-1].Worlds["red"] = m.Worlds[high]
+			nextMatches[i-1].AllWorlds["red"] = m.AllWorlds[high]
 		}
 
 		// Bottom tier - cannot descend further
 		if i == len(matches)-1 {
 			nextMatches[i].Worlds["red"] = m.Worlds[low]
+			nextMatches[i].AllWorlds["red"] = m.AllWorlds[low]
 		} else {
 			nextMatches[i+1].Worlds["green"] = m.Worlds[low]
+			nextMatches[i+1].AllWorlds["green"] = m.AllWorlds[low]
 		}
 
 		nextMatches[i].Worlds["blue"] = m.Worlds[notIn(&m.Worlds, []string{low, high})]
+		nextMatches[i].AllWorlds["blue"] = m.AllWorlds[notIn(&m.Worlds, []string{low, high})]
 	}
 
 	return nextMatches

@@ -78,6 +78,11 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"blue":  2206,
 						"green": 2010,
 					},
+					AllWorlds: map[string][]int{
+						"red":   []int{2207, 2202},
+						"blue":  []int{2204, 2206},
+						"green": []int{2008, 2010},
+					},
 				},
 				{
 					ID: "2-2",
@@ -86,6 +91,11 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"blue":  2301,
 						"green": 2013,
 					},
+					AllWorlds: map[string][]int{
+						"red":   []int{2004, 2012},
+						"blue":  []int{2301},
+						"green": []int{2009, 2013},
+					},
 				},
 				{
 					ID: "2-3",
@@ -93,6 +103,11 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"red":   2014,
 						"blue":  2007,
 						"green": 2203,
+					},
+					AllWorlds: map[string][]int{
+						"red":   []int{2201, 2014},
+						"blue":  []int{2011, 2007},
+						"green": []int{2006, 2203},
 					},
 				},
 			},
