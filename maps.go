@@ -18,6 +18,6 @@ type Map struct {
 
 // Maps returns the maps with the given ids
 func (s *Session) Maps(ids ...int) (resp []*Map, err error) {
-	err = s.get(concatStrings("/v2/maps", genArgs(ids...)), &resp)
+	err = s.getWithLang(concatStrings("/v2/maps", genArgs(ids...)), &resp)
 	return
 }

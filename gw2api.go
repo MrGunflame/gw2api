@@ -86,6 +86,14 @@ func (s *Session) getWithAuth(endpoint string, dst interface{}) error {
 	return makeRequest(req, dst)
 }
 
+// For language endpoint
+func (s *Session) getWithLang(endpoint string, dst interface{}) error {
+	if strings.Contains(endpoint, "?") {
+		return s.get(concatStrings(endpoint, "&lang=", s.language), &dst)
+	}
+	return s.get(concatStrings(endpoint, "?lang=", s.language), &dst)
+}
+
 // makeRequest takes a http request, sends it and decodes the json response into the dst interface
 func makeRequest(req *http.Request, dst interface{}) error {
 	// Make the http request
