@@ -256,14 +256,14 @@ func (s *Session) AccountTitles() (titles []int, err error) {
 	return
 }
 
-// Currency represents objects in the account wallet
-type Currency struct {
+// AccountCurrency represents objects in the account wallet
+type AccountCurrency struct {
 	ID    int `json:"id"`
 	Value int `json:"value"`
 }
 
 // AccountWallet returns the currencies of the account
-func (s *Session) AccountWallet() (wallet []*Currency, err error) {
+func (s *Session) AccountWallet() (wallet []*AccountCurrency, err error) {
 	err = s.getWithAuth("/v2/account/wallet", &wallet)
 	return
 }
