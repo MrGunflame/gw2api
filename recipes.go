@@ -1,5 +1,7 @@
 package gw2api
 
+import "strconv"
+
 // Recipe is a game recipe
 type Recipe struct {
 	ID              int      `json:"id"`
@@ -25,5 +27,11 @@ type Recipe struct {
 // Recipes returns the recipes with the requested ids
 func (s *Session) Recipes(ids ...int) (resp []*Recipe, err error) {
 	err = s.get(concatStrings("/v2/recipes", genArgs(ids...)), &resp)
+	return
+}
+
+// RecipesSearchInput searches for recipes that use the item as an input ingredient
+func (s *Session) RecipesSearchInput(id int) (resp []int, err error) {
+	err = s.get(concatStrings("/v2/recipes/search?input=", strconv.Itoa(id)), &resp)
 	return
 }

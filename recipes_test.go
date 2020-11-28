@@ -8,3 +8,10 @@ func TestRecipes(t *testing.T) {
 		t.Errorf("Recipes failed: %s", err)
 	}
 }
+
+func TestRecipesSearchInput(t *testing.T) {
+	api := New()
+	if _, err := api.RecipesSearchInput(46731); err != nil {
+		t.Errorf("RecipesSearchInput failed: %s", err)
+	}
+}
