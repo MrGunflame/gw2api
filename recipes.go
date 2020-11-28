@@ -35,3 +35,9 @@ func (s *Session) RecipesSearchInput(id int) (resp []int, err error) {
 	err = s.get(concatStrings("/v2/recipes/search?input=", strconv.Itoa(id)), &resp)
 	return
 }
+
+// RecipesSearchOutput searches for recipes that craft the item
+func (s *Session) RecipesSearchOutput(id int) (resp []int, err error) {
+	err = s.get(concatStrings("/v2/recipes/search?output=", strconv.Itoa(id)), &resp)
+	return
+}
