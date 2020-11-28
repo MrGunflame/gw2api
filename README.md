@@ -1,5 +1,8 @@
 # GW2API
 
+[![GoDoc](https://godoc.org/gitlab.com/MrGunflame/gw2api?status.svg)](https://godoc.org/gitlab.com/MrGunflame/gw2api)
+[![Go Report Card](https://goreportcard.com/badge/gitlab.com/MrGunflame/gw2api)](https://goreportcard.com/report/gitlab.com/MrGunflame/gw2api)
+
 A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Wrapper Client in Go.
 
 ## Installation
