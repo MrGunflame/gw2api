@@ -130,68 +130,68 @@ type GuildTeam struct {
 	} `json:"seasons"`
 }
 
-// GetGuild returns the guilds general information
-func (s *Session) GetGuild(guild string, auth bool) (guildd Guild, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild), &guildd)
+// Guild returns the guilds general information
+func (s *Session) Guild(guild string, auth bool) (resp Guild, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild), &resp)
 	return
 }
 
-// GetGuildPermissions returns the assignable guild permissions
-func (s *Session) GetGuildPermissions(ids ...string) (permissions []*GuildPermission, err error) {
-	err = s.get(concatStrings("/v2/guild/permissions", genArgsString(ids...)), &permissions)
+// GuildPermissions returns the assignable guild permissions
+func (s *Session) GuildPermissions(ids ...string) (resp []*GuildPermission, err error) {
+	err = s.get(concatStrings("/v2/guild/permissions", genArgsString(ids...)), &resp)
 	return
 }
 
-// GetGuildSearch searches for guilds based on the given name. It returns an array of guild ids
-func (s *Session) GetGuildSearch(guild string) (results []string, err error) {
-	err = s.get(concatStrings("/v2/guild/search?name=", guild), &results)
+// GuildSearch searches for guilds based on the given name. It returns an array of guild ids
+func (s *Session) GuildSearch(guild string) (resp []string, err error) {
+	err = s.get(concatStrings("/v2/guild/search?name=", guild), &resp)
 	return
 }
 
-// GetGuildHallUpgrades returns unlockable upgrades for the guild hall. Note: This method is call GetGuildHallUpgrades as GetGuildUpgrades returns the guilds unlocked upgrades
-func (s *Session) GetGuildHallUpgrades(ids ...int) (upgrades []*GuildUpgrade, err error) {
-	err = s.get(concatStrings("/v2/guild/upgrades", genArgs(ids...)), &upgrades)
+// GuildHallUpgrades returns unlockable upgrades for the guild hall. Note: This method is call GetGuildHallUpgrades as GetGuildUpgrades returns the guilds unlocked upgrades
+func (s *Session) GuildHallUpgrades(ids ...int) (resp []*GuildUpgrade, err error) {
+	err = s.get(concatStrings("/v2/guild/upgrades", genArgs(ids...)), &resp)
 	return
 }
 
-// GetGuildLog returns the guild log events
-func (s *Session) GetGuildLog(guild string) (log []*GuildLogEntry, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/log"), &log)
+// GuildLog returns the guild log events
+func (s *Session) GuildLog(guild string) (resp []*GuildLogEntry, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/log"), &resp)
 	return
 }
 
-// GetGuildMembers returns all guild members
-func (s *Session) GetGuildMembers(guild string) (members []*GuildMember, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/members"), &members)
+// GuildMembers returns all guild members
+func (s *Session) GuildMembers(guild string) (resp []*GuildMember, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/members"), &resp)
 	return
 }
 
-// GetGuildRanks returns all guild ranks
-func (s *Session) GetGuildRanks(guild string) (ranks []*GuildRank, err error) {
-	err = s.getWithAuth(concatStrings("/V2/guild/", guild, "/ranks"), &ranks)
+// GuildRanks returns all guild ranks
+func (s *Session) GuildRanks(guild string) (resp []*GuildRank, err error) {
+	err = s.getWithAuth(concatStrings("/V2/guild/", guild, "/ranks"), &resp)
 	return
 }
 
-// GetGuildStash returns all items in the guild stash
-func (s *Session) GetGuildStash(guild string) (stash []*GuildStashContainer, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/stash"), &stash)
+// GuildStash returns all items in the guild stash
+func (s *Session) GuildStash(guild string) (resp []*GuildStashContainer, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/stash"), &resp)
 	return
 }
 
-// GetGuildTreasury returns all items in the guild treasury
-func (s *Session) GetGuildTreasury(guild string) (treasury []*GuildTreasurySlot, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/treasury"), &treasury)
+// GuildTreasury returns all items in the guild treasury
+func (s *Session) GuildTreasury(guild string) (resp []*GuildTreasurySlot, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/treasury"), &resp)
 	return
 }
 
-// GetGuildTeams returns all guild teams
-func (s *Session) GetGuildTeams(guild string) (teams []*GuildTeam, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/teams"), &teams)
+// GuildTeams returns all guild teams
+func (s *Session) GuildTeams(guild string) (resp []*GuildTeam, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/teams"), &resp)
 	return
 }
 
-// GetGuildUpgrades returns all unlocked guild upgrades
-func (s *Session) GetGuildUpgrades(guild string) (upgrades []int, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/upgrades"), &upgrades)
+// GuildUpgrades returns all unlocked guild upgrades
+func (s *Session) GuildUpgrades(guild string) (resp []int, err error) {
+	err = s.getWithAuth(concatStrings("/v2/guild/", guild, "/upgrades"), &resp)
 	return
 }
