@@ -23,9 +23,9 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"green": 2010,
 					},
 					AllWorlds: map[string][]int{
-						"red":   []int{2009, 2013},
-						"blue":  []int{2204, 2206},
-						"green": []int{2008, 2010},
+						"red":   {2009, 2013},
+						"blue":  {2204, 2206},
+						"green": {2008, 2010},
 					},
 					VictoryPoints: map[string]int{
 						"red":   78,
@@ -41,9 +41,9 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"green": 2202,
 					},
 					AllWorlds: map[string][]int{
-						"red":   []int{2006, 2203},
-						"blue":  []int{2301},
-						"green": []int{2207, 2202},
+						"red":   {2006, 2203},
+						"blue":  {2301},
+						"green": {2207, 2202},
 					},
 					VictoryPoints: map[string]int{
 						"red":   86,
@@ -59,9 +59,9 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"green": 2012,
 					},
 					AllWorlds: map[string][]int{
-						"red":   []int{2201, 2014},
-						"blue":  []int{2011, 2007},
-						"green": []int{2004, 2012},
+						"red":   {2201, 2014},
+						"blue":  {2011, 2007},
+						"green": {2004, 2012},
 					},
 					VictoryPoints: map[string]int{
 						"red":   79,
@@ -79,9 +79,9 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"green": 2010,
 					},
 					AllWorlds: map[string][]int{
-						"red":   []int{2207, 2202},
-						"blue":  []int{2204, 2206},
-						"green": []int{2008, 2010},
+						"red":   {2207, 2202},
+						"blue":  {2204, 2206},
+						"green": {2008, 2010},
 					},
 				},
 				{
@@ -92,9 +92,9 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"green": 2013,
 					},
 					AllWorlds: map[string][]int{
-						"red":   []int{2004, 2012},
-						"blue":  []int{2301},
-						"green": []int{2009, 2013},
+						"red":   {2004, 2012},
+						"blue":  {2301},
+						"green": {2009, 2013},
 					},
 				},
 				{
@@ -105,9 +105,9 @@ func TestPredictNextWvWMatches(t *testing.T) {
 						"green": 2203,
 					},
 					AllWorlds: map[string][]int{
-						"red":   []int{2201, 2014},
-						"blue":  []int{2011, 2007},
-						"green": []int{2006, 2203},
+						"red":   {2201, 2014},
+						"blue":  {2011, 2007},
+						"green": {2006, 2203},
 					},
 				},
 			},
