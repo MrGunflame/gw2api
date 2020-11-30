@@ -5,7 +5,7 @@ type Title struct {
 	ID           int    `json:"id"`
 	Name         string `json:"name"`
 	Achievement  int    `json:"achievement"`
-	Acheivements []int  `json:"achievements"`
+	Achievements []int  `json:"achievements"`
 	APRequired   int    `json:"ap_required"`
 }
 
