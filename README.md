@@ -1,5 +1,8 @@
 # GW2API
 
+[![GoDoc](https://godoc.org/gitlab.com/MrGunflame/gw2api?status.svg)](https://godoc.org/gitlab.com/MrGunflame/gw2api)
+[![Go Report Card](https://goreportcard.com/badge/gitlab.com/MrGunflame/gw2api)](https://goreportcard.com/report/gitlab.com/MrGunflame/gw2api)
+
 A [Guild Wars 2 API](https://wiki.guildwars2.com/wiki/API:Main) Wrapper Client in Go.
 
 ## Installation
@@ -120,22 +123,22 @@ func main() {
 - [x] /v2/items
 - [x] /v2/itemstats
 - [x] /v2/materials
-- [ ] /v2/pvp/amulets
-- [ ] /v2/recipes
-- [ ] /v2/recipes/search
-- [ ] /v2/skins
-- [ ] /v2/continents
-- [ ] /v2/maps
-- [ ] /v2/build
-- [ ] /v2/colors
-- [ ] /v2/currencies
-- [ ] /v2/dungeons
-- [ ] /v2/files
-- [ ] /v2/quaggans
-- [ ] /v2/minis
-- [ ] /v2/novelties
-- [ ] /v2/raids
-- [ ] /v2/titles
+- [x] /v2/pvp/amulets
+- [x] /v2/recipes
+- [x] /v2/recipes/search
+- [x] /v2/skins
+- [x] /v2/continents
+- [x] /v2/maps
+- [x] /v2/build
+- [x] /v2/colors
+- [x] /v2/currencies
+- [x] /v2/dungeons
+- [x] /v2/files
+- [x] /v2/quaggans
+- [x] /v2/minis
+- [x] /v2/novelties
+- [x] /v2/raids
+- [x] /v2/titles
 - [x] /v2/worlds
 - [x] /v2/backstory/answers
 - [x] /v2/backstory/questions
