@@ -142,9 +142,9 @@ func main() {
 - [x] /v2/worlds
 - [x] /v2/backstory/answers
 - [x] /v2/backstory/questions
-- [ ] /v2/stories
-- [ ] /v2/stories/seasons
-- [ ] /v2/quests
+- [x] /v2/stories
+- [x] /v2/stories/seasons
+- [x] /v2/quests
 - [x] /v2/pvp
 - [x] /v2/pvp/ranks
 - [x] /v2/pvp/seasons
