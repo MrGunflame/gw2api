@@ -11,8 +11,8 @@ type Itemstat struct {
 	} `json:"attributes"`
 }
 
-// GetItemStats returns a list of itemstats
-func (s *Session) GetItemStats(ids ...int) (itemstats []*Itemstat, err error) {
+// ItemStats returns a list of itemstats
+func (s *Session) ItemStats(ids ...int) (itemstats []*Itemstat, err error) {
 	err = s.get(concatStrings("/v2/itemstats", genArgs(ids...)), &itemstats)
 	return
 }
