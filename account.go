@@ -273,3 +273,15 @@ func (s *Session) AccountWorldbosses() (bosses []string, err error) {
 	err = s.getWithAuth("/v2/account/worldbosses", &bosses)
 	return
 }
+
+// AccountLegendaryArmoryItem is an item added in the account's legendary armory
+type AccountLegendaryArmoryItem struct {
+	ID    int `json:"id"`
+	Count int `json:"count"`
+}
+
+// AccountLegendaryArmory returns the items in the account's legendary armory
+func (s *Session) AccountLegendaryArmory() (res []*AccountLegendaryArmoryItem, err error) {
+	err = s.getWithAuth("/v2/account/legendaryarmory", &res)
+	return
+}

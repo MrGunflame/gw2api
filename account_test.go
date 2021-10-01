@@ -340,3 +340,15 @@ func TestAccountWorldbosses(t *testing.T) {
 		t.Errorf("AccountWorldbosses failed fetching endpoint: '%s'", err)
 	}
 }
+
+func TestAccountLegendaryArmory(t *testing.T) {
+	key := os.Getenv("APIKEY")
+	if key == "" {
+		t.Skip("Unable to test without APIkey")
+	}
+
+	api := New().WithAccessToken(key)
+	if _, err := api.AccountLegendaryArmory(); err != nil {
+		t.Errorf("AccountLegendaryArmory failed: '%s'", err)
+	}
+}
