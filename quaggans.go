@@ -8,6 +8,6 @@ type Quaggan struct {
 
 // Quaggans returns the quaggans with the given ids
 func (s *Session) Quaggans(ids ...string) (resp []*Quaggan, err error) {
-	err = s.get(concatStrings("/v2/quaggan", genArgsString(ids...)), &resp)
+	err = s.get(concatStrings("/v2/quaggans", genArgsString(ids...)), &resp)
 	return
 }
