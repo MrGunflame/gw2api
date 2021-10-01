@@ -27,7 +27,7 @@ func main() {
     api := gw2api.New()
 
     // Make a request
-    worlds, err := api.GetWorlds()
+    worlds, err := api.Worlds()
     if err != nil {
         panic(err)
     }
@@ -35,11 +35,11 @@ func main() {
     fmt.Println(worlds)
 
     // Some endpoints will require an apikey
-    // Set an apikey
+    // Set an api token
     api = api.WithAcessToken("<YOUR APIKEY>")
 
-    // Again, make a request
-    account, err := gw2api.GetAccount()
+    // Make a request
+    account, err := gw2api.Account()
     if err != nil {
         panic(err)
     }
