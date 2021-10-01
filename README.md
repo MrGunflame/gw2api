@@ -1,6 +1,5 @@
 # GW2API
 
-[![GoDoc](https://godoc.org/gitlab.com/MrGunflame/gw2api?status.svg)](https://godoc.org/gitlab.com/MrGunflame/gw2api)
 [![Go Reference](https://pkg.go.dev/badge/gitlab.com/MrGunflame/gw2api.svg)](https://pkg.go.dev/gitlab.com/MrGunflame/gw2api)
 [![Go Report Card](https://goreportcard.com/badge/gitlab.com/MrGunflame/gw2api)](https://goreportcard.com/report/gitlab.com/MrGunflame/gw2api)
 
@@ -68,6 +67,7 @@ func main() {
 - [x] /v2/account/home/cats
 - [x] /v2/account/home/nodes
 - [x] /v2/account/inventory
+- [x] /v2/account/legendaryarmory
 - [x] /v2/account/luck
 - [x] /v2/account/mailcarriers
 - [x] /v2/account/mapchests
@@ -105,6 +105,7 @@ func main() {
 - [x] /v2/specializations
 - [x] /v2/skills
 - [x] /v2/traits
+- [x] /v2/legendaryarmory
 - [x] /v2/legends
 - [x] /v2/guild/:id
 - [x] /v2/emblem
