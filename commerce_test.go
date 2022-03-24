@@ -38,6 +38,13 @@ func TestCommerceListings(t *testing.T) {
 	}
 }
 
+func TestCommerceListingsIds(t *testing.T) {
+	api := New()
+	if _, err := api.CommerceListingsIds(); err != nil {
+		t.Errorf("CommerceListingsIds failed: '%s'", err)
+	}
+}
+
 func TestCommercePrices(t *testing.T) {
 	api := New()
 	if _, err := api.CommercePrices(104); err != nil {
