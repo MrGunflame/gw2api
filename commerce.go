@@ -56,6 +56,12 @@ func (s *Session) CommerceListings(ids ...int) (items []*CommerceListing, err er
 	return
 }
 
+// CommerceListingsIds returns ids of all items available on trading post
+func (s *Session) CommerceListingsIds() (ids []int, err error) {
+	err = s.get("/v2/commerce/listings", &ids)
+	return
+}
+
 // CommercePrice contains the currently highest buy price and lowest sell price
 type CommercePrice struct {
 	ID          int  `json:"id"`          // The item id
