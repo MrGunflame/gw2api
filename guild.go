@@ -132,7 +132,13 @@ type GuildTeam struct {
 
 // Guild returns the guilds general information
 func (s *Session) Guild(guild string, auth bool) (resp Guild, err error) {
-	err = s.getWithAuth(concatStrings("/v2/guild/", guild), &resp)
+	if auth {
+		// Request authenticated general guild information
+		err = s.getWithAuth(concatStrings("/v2/guild/", guild), &resp)
+	} else {
+		// Request public general guild information
+		err = s.get(concatStrings("/v2/guild/", guild), &resp)
+	}
 	return
 }
 
