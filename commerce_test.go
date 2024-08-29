@@ -19,7 +19,7 @@ func TestCommerceDelivery(t *testing.T) {
 
 func TestCommerceExchangeCoins(t *testing.T) {
 	api := New()
-	if _, err := api.CommerceExchangeCoins(10000); err != nil {
+	if _, err := api.CommerceExchangeCoins(1000000); err != nil {
 		t.Errorf("CommerceExchangeCoins failed: '%s'", err)
 	}
 }
