@@ -136,6 +136,12 @@ type AccountLuck struct {
 	Value int    `json:"value"`
 }
 
+// AccountJadebots returns the list of Jade Bots unlocked by the account.
+func (s *Session) AccountJadeBots() (bots []int, err error) {
+	err = s.getWithAuth("/v2/account/jadebots", &bots)
+	return
+}
+
 // AccountLuck returns the accounts luck
 func (s *Session) AccountLuck() (luck AccountLuck, err error) {
 	err = s.getWithAuth("/v2/account/luck", &luck)
