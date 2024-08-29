@@ -125,6 +125,18 @@ func TestAccountSharedInventory(t *testing.T) {
 	}
 }
 
+func TestAccountJadeBots(t *testing.T) {
+	key := os.Getenv("APIKEY")
+	if key == "" {
+		t.Skip("Unable to test without APIKey")
+	}
+
+	api := New().WithAccessToken(key)
+	if _, err := api.AccountJadeBots(); err != nil {
+		t.Errorf("AccountJadeBots failed fetching endpoint: '%s'", err)
+	}
+}
+
 func TestAccountLuck(t *testing.T) {
 	key := os.Getenv("APIKEY")
 	if key == "" {
