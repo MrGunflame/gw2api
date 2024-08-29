@@ -105,6 +105,7 @@ func main() {
 - [x] /v2/specializations
 - [x] /v2/skills
 - [x] /v2/traits
+- [x] /v2/jadebots
 - [x] /v2/legendaryarmory
 - [x] /v2/legends
 - [x] /v2/guild/:id
