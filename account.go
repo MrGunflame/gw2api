@@ -23,21 +23,21 @@ type AccountBankItem struct {
 
 // Account contains general information
 type Account struct {
-	ID           string        `json:"id"`
-	Name         string        `json:"name"`
-	Age          time.Duration `json:"age"`
-	World        int           `json:"world"`
-	Guilds       []string      `json:"guilds"`
-	GuildLeader  []string      `json:"guild_leader"`
-	Created      time.Time     `json:"created"`
-	Access       []string      `json:"access"`
-	Commander    bool          `json:"commander"`
-	FractalLevel int           `json:"fractal_level"`
-	DailyAP      int           `json:"daily_ap"`
-	MonthlyAP    int           `json:"monthly_ap"`
-	WvWRank      int           `json:"wvw_rank"`
-	LastModified time.Time     `json:"last_modified"`
-	WvW          WvW           `json:"wvw"`
+	ID           string         `json:"id"`
+	Name         string         `json:"name"`
+	Age          time.Duration  `json:"age"`
+	World        int            `json:"world"`
+	Guilds       []string       `json:"guilds"`
+	GuildLeader  []string       `json:"guild_leader"`
+	Created      time.Time      `json:"created"`
+	Access       []string       `json:"access"`
+	Commander    bool           `json:"commander"`
+	FractalLevel int            `json:"fractal_level"`
+	DailyAP      int            `json:"daily_ap"`
+	MonthlyAP    int            `json:"monthly_ap"`
+	WvWRank      int            `json:"wvw_rank"`
+	LastModified time.Time      `json:"last_modified"`
+	WvW          AccountWvWInfo `json:"wvw"`
 }
 
 // Account returns general account information
@@ -298,8 +298,8 @@ func (s *Session) AccountLegendaryArmory() (res []*AccountLegendaryArmoryItem, e
 	return
 }
 
-// WvW is the accounts WvW information
-type WvW struct {
+// AccountWvWInfo is the accounts WvW information
+type AccountWvWInfo struct {
 	TeamID int `json:"team_id"`
-	Rank   int    `json:"rank"`
+	Rank   int `json:"rank"`
 }
