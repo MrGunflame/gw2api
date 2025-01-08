@@ -35,12 +35,19 @@ type Account struct {
 	FractalLevel int           `json:"fractal_level"`
 	DailyAP      int           `json:"daily_ap"`
 	MonthlyAP    int           `json:"monthly_ap"`
-	WvWRank      int           `json:"wvw_rank"`
+	// Deprecated: Use WvW.Rank instead
+	WvWRank      int            `json:"wvw_rank"`
+	LastModified time.Time      `json:"last_modified"`
+	WvW          AccountWvWInfo `json:"wvw"`
 }
 
 // Account returns general account information
 func (s *Session) Account() (account Account, err error) {
-	err = s.getWithAuth("/v2/account", &account)
+	err = s.getWithAuth("/v2/account?v=2024-07-20T01:00:00.000Z", &account)
+	// Backwards compatibility for Account.WvWRank, as that information is now in Account.WvW.Rank
+	if account.WvW.Rank > 0 {
+		account.WvWRank = account.WvW.Rank
+	}
 	return
 }
 
@@ -290,4 +297,10 @@ type AccountLegendaryArmoryItem struct {
 func (s *Session) AccountLegendaryArmory() (res []*AccountLegendaryArmoryItem, err error) {
 	err = s.getWithAuth("/v2/account/legendaryarmory", &res)
 	return
+}
+
+// AccountWvWInfo is the accounts WvW information
+type AccountWvWInfo struct {
+	TeamID int `json:"team_id"`
+	Rank   int `json:"rank"`
 }
