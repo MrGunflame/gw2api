@@ -23,18 +23,19 @@ type AccountBankItem struct {
 
 // Account contains general information
 type Account struct {
-	ID           string         `json:"id"`
-	Name         string         `json:"name"`
-	Age          time.Duration  `json:"age"`
-	World        int            `json:"world"`
-	Guilds       []string       `json:"guilds"`
-	GuildLeader  []string       `json:"guild_leader"`
-	Created      time.Time      `json:"created"`
-	Access       []string       `json:"access"`
-	Commander    bool           `json:"commander"`
-	FractalLevel int            `json:"fractal_level"`
-	DailyAP      int            `json:"daily_ap"`
-	MonthlyAP    int            `json:"monthly_ap"`
+	ID           string        `json:"id"`
+	Name         string        `json:"name"`
+	Age          time.Duration `json:"age"`
+	World        int           `json:"world"`
+	Guilds       []string      `json:"guilds"`
+	GuildLeader  []string      `json:"guild_leader"`
+	Created      time.Time     `json:"created"`
+	Access       []string      `json:"access"`
+	Commander    bool          `json:"commander"`
+	FractalLevel int           `json:"fractal_level"`
+	DailyAP      int           `json:"daily_ap"`
+	MonthlyAP    int           `json:"monthly_ap"`
+	// Deprecated: Use WvW.Rank instead
 	WvWRank      int            `json:"wvw_rank"`
 	LastModified time.Time      `json:"last_modified"`
 	WvW          AccountWvWInfo `json:"wvw"`
